@@ -1,11 +1,11 @@
 #include "mate.dtsi"
 
 // dummy pin for dongle
-&default_transform: keymap_transform_0 {
+&default_transform {
     columns = <1>;
     rows = <1>;
         map = <RC(0,0)>;
-    };
+};
 
 &kscan0 {
     input-gpios
