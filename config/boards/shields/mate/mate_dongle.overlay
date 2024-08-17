@@ -1,0 +1,14 @@
+#include "mate.dtsi"
+
+// dummy pin for dongle
+&default_transform: keymap_transform_0 {
+    columns = <1>;
+    rows = <1>;
+        map = <RC(0,0)>;
+    };
+
+&kscan0 {
+    input-gpios
+    = <&pro_micro 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+    ;
+};

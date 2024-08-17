@@ -1,0 +1,116 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+&caps_word { continue-list = <MINUS UNDERSCORE BKSP DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
+&sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
+&sl { release-after-ms = <3000>; };
+
+#define AZ  0
+#define NS  1
+#define NV  2
+#define FU  3
+
+#define  xx  &none
+#define ____ &trans
+#define ASH(l) &tkp LS(l) l
+#define K(m) &ksk m m
+#define PARS &tkp RPAR LPAR
+#define KERP &key_repeat
+#define CAWO &caps_word
+
+#define VX &tkp LC(X) LC(V)
+#define CZ &tkp LC(Z) LC(C)
+#define DELWRD LC(BKSP)
+#define WRD_N RC(RIGHT)
+#define WRD_P LC(LEFT)
+#define TAB_N RA(RIGHT)
+#define TAB_P LA(LEFT)
+
+
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1400  // 600
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 30    // 10
+
+#include <dt-bindings/zmk/mouse.h>
+#include <behaviors/mouse_keys.dtsi>
+
+&mmv {
+  acceleration-exponent = <1>;      // 1
+  time-to-max-speed-ms = <800>;    // 40
+  delay-ms = <0>;                   // 0
+};
+
+&msc {
+  acceleration-exponent = <1>;      // 0
+  time-to-max-speed-ms = <40>;    // 500
+  delay-ms = <0>;                   // 10
+};
+
+#define MOU_U &mmv MOVE_UP
+#define MOU_D &mmv MOVE_DOWN
+#define MOU_L &mmv MOVE_LEFT
+#define MOU_R &mmv MOVE_RIGHT
+#define SCR_U &msc SCRL_UP 
+#define SCR_D &msc SCRL_DOWN
+#define MCK_L &mkp LCLK 
+#define MCK_R &mkp RCLK 
+
+
+
+/ { 
+    macros {
+        rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
+        rst_all:  rst_all  { compatible = "zmk,behavior-macro"; label = "ZM_rst_all"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>, <&macro_tap &to 0>; };
+        dot_spc:  dot_spc  { compatible = "zmk,behavior-macro"; label = "ZM_dot_spc"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+            bindings = <&macro_tap &kp DOT &kp SPACE &sk LSHFT>; };
+    };
+
+    behaviors {
+        mk:  moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
+        tkp: two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&kp>; };         
+        ksk: kp_sk        { compatible = "zmk,behavior-hold-tap"; label = "KP_SK";        #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&sk>; };         
+        mck: moml_mkp     { compatible = "zmk,behavior-hold-tap"; label = "MOML_MKP";     #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&mkp>; }; 
+        mmd: moml_macro   { compatible = "zmk,behavior-hold-tap"; label = "MOML_MACRO";   #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&dot_spc>; }; 
+    };
+  
+    keymap {
+        compatible = "zmk,keymap";
+        abc {
+            bindings = <
+                xx ASH(Q)  ASH(W)  ASH(D)  ASH(F)  &rst_all   &rst_all  ASH(J)  ASH(U)  ASH(P)  ASH(DEL)   xx
+                xx ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)     KERP      ASH(H)  ASH(E)  ASH(I)  ASH(O)     xx
+                xx ASH(Y)  ASH(X)  ASH(C)  ASH(V)  AS2(B)     ASH(G)    ASH(N)  ASH(M)  ASH(K)  ASH(L)     xx
+                xx K(LCTRL) K(LGUI) K(LALT)  &mk NS BKSP      &mk NV SPACE  ASH(TAB)  ASH(ESC)  ASH(ENTER) xx
+            >;  
+        };
+
+        nsy {
+            bindings = <
+                xx ASH(GRAVE)  ASH(MINUS)  ASH(EQUAL) ASH(BSLH)  ____     ____  ASH(N7)  ASH(N8)  ASH(N9)  ____     xx
+                xx ASH(SEMI)   ASH(COMMA)  ASH(DOT)   ASH(SLASH) KERP     ____  ASH(N4)  ASH(N5)  ASH(N6)  xx       xx
+                xx PARS        ASH(LBKT)   ASH(RBKT)  ASH(SQT)   ____     ____  ASH(N1)  ASH(N2)  ASH(N3)  ASH(N0)  xx
+                xx ____        ____        ____       ____                      &mmd FU D   ____  ____     ____     xx
+            >;
+        };
+
+        nav { 
+            bindings = <
+                xx ____   &kp CAPS  MOU_U    ____     ____     ____     ____      &kp UP    &kp PSCRN  ____       xx
+                xx CAWO   MOU_L     MOU_D  MOU_R      ____     ____     &kp LEFT  &kp DOWN  &kp RIGHT  &to NS     xx
+                xx MCK_L  MCK_R     SCR_U  SCR_D  &kp K_APP    &kp INS  &kp HOME  &kp END   &kp PG_UP  &kp PG_DN  xx
+                xx ____   ____      ____   K(LSHFT)                         ____      ____      ____       ____   xx
+            >;
+        };
+
+        fun {
+            bindings = <
+                xx xx  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  xx    xx   xx  &kp C_BRI_DN  &kp C_BRI_UP  xx  xx 
+                xx &kp F1  &kp F2  &kp F3  &kp F4  &kp F5            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  xx
+                xx &kt LCTRL  &kt LGUI  &kt LALT  &kt LSHFT          xx   xx  xx            &kp F11  &kp F12  xx
+                xx ____   ____      ____   K(LSHFT)                          ____    ____   ____     ____     xx
+            >;
+        };
+    };
+};

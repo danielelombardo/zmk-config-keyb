@@ -1,0 +1,16 @@
+if SHIELD_MATE_DONGLE
+
+config ZMK_KEYBOARD_NAME
+	default "mate"
+	
+config ZMK_SPLIT_ROLE_CENTRAL
+	default y
+	
+endif
+
+if SHIELD_MATE_LEFT || SHIELD_MATE_RIGHT || SHIELD_MATE_DONGLE 
+
+config ZMK_SPLIT
+	default y
+	
+endif
