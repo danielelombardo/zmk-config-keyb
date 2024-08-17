@@ -16,8 +16,6 @@
 #define ASH(l) &tkp LS(l) l 
 #define ks(l) &ksk l l 
 #define PARS &tkp RPAR LPAR
-#define KERP &key_repeat
-#define CAWO &caps_word
 
 #define VX &tkp LC(X) LC(V)
 #define CZ &tkp LC(Z) LC(C)
@@ -78,26 +76,26 @@
         compatible = "zmk,keymap";
         abc {
             bindings = <
-                xxxx ASH(Q)  ASH(W)  ASH(D)  ASH(F)  &rst_all   &rst_all  ASH(J)  ASH(U)  ASH(P)  ASH(DEL)   xxxx
-                xxxx ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)     KERP      ASH(H)  ASH(E)  ASH(I)  ASH(O)     xxxx
-                xxxx ASH(Y)  ASH(X)  ASH(C)  ASH(V)  AS2(B)     ASH(G)    ASH(N)  ASH(M)  ASH(K)  ASH(L)     xxxx
-                xxxx ks(LCTRL) ks(LGUI) ks(LALT)  &mk 1 BSPC     &mk 2 SPACE  ASH(TAB)  ASH(ESC)  ASH(ENTER) xxxx
+                xxxx ASH(Q)  ASH(W)  ASH(D)  ASH(F)  &rst_all        &rst_all     ASH(J)  ASH(U)  ASH(P)  ASH(DEL)   xxxx
+                xxxx ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)          &key_repeat  ASH(H)  ASH(E)  ASH(I)  ASH(O)     xxxx
+                xxxx ASH(Y)  ASH(X)  ASH(C)  ASH(V)  AS2(B)          ASH(G)       ASH(N)  ASH(M)  ASH(K)  ASH(L)     xxxx
+                xxxx ks(LCTRL) ks(LGUI) ks(LALT)  &mk 1 BSPC             &mk 2 SPACE  ASH(TAB)  ASH(ESC)  ASH(ENTER) xxxx
             >;  
         };
 
         nsy {
             bindings = <
-                xxxx ASH(GRAVE)  ASH(MINUS)  ASH(EQUAL) ASH(BSLH)  ____     ____  ASH(N7)  ASH(N8)  ASH(N9)  ____     xxxx
-                xxxx ASH(SEMI)   ASH(COMMA)  ASH(DOT)   ASH(SLASH) KERP     ____  ASH(N4)  ASH(N5)  ASH(N6)  xxxx     xxxx
-                xxxx PARS        ASH(LBKT)   ASH(RBKT)  ASH(SQT)   ____     ____  ASH(N1)  ASH(N2)  ASH(N3)  ASH(N0)  xxxx
-                xxxx ____        ____        ____       ____                      &mmd 3 D  ____    ____     ____     xxxx
+                xxxx ASH(GRAVE)  ASH(MINUS)  ASH(EQUAL) ASH(BSLH)  ____         ____  ASH(N7)  ASH(N8)  ASH(N9)  ____     xxxx
+                xxxx ASH(SEMI)   ASH(COMMA)  ASH(DOT)   ASH(SLASH) &key_repeat  ____  ASH(N4)  ASH(N5)  ASH(N6)  xxxx     xxxx
+                xxxx PARS        ASH(LBKT)   ASH(RBKT)  ASH(SQT)   ____         ____  ASH(N1)  ASH(N2)  ASH(N3)  ASH(N0)  xxxx
+                xxxx ____        ____        ____       ____                          &mmd 3 D  ____    ____     ____     xxxx
             >;
         };
 
         nav { 
             bindings = <
                 xxxx ____   &kp CAPS  MOU_U    ____     ____     ____     ____      &kp UP    &kp PSCRN  ____       xxxx
-                xxxx CAWO   MOU_L     MOU_D  MOU_R      ____     ____     &kp LEFT  &kp DOWN  &kp RIGHT  &to NS     xxxx
+                xxxx &caps_word   MOU_L     MOU_D  MOU_R      ____     ____     &kp LEFT  &kp DOWN  &kp RIGHT  &to NS     xxxx
                 xxxx MCK_L  MCK_R     SCR_U  SCR_D  &kp K_APP    &kp INS  &kp HOME  &kp END   &kp PG_UP  &kp PG_DN  xxxx
                 xxxx ____   ____      ____   ks(LSHFT)                        ____      ____      ____       ____   xxxx
             >;
