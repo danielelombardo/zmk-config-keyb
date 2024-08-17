@@ -8,7 +8,10 @@
 };
 
 &kscan0 {
-    input-gpios
-    = <&pro_micro 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+    row-gpios
+        = <&pro_micro 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+    ;
+    col-gpios
+        = <&pro_micro 10 GPIO_ACTIVE_HIGH>
     ;
 };
