@@ -11,10 +11,10 @@
 #define NV  2
 #define FU  3
 
-#define  xx  &none
+#define xxxx &none
 #define ____ &trans
-#define ASH(l) &tkp LS(l) l
-#define KS(m) &ksk m m
+#define ASH(l) &tkp LS(l) l 
+#define ks(l) &ksk l l 
 #define PARS &tkp RPAR LPAR
 #define KERP &key_repeat
 #define CAWO &caps_word
@@ -69,9 +69,8 @@
 
     behaviors {
         mk:  moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
-        tkp: two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&kp>; };         
-        ksk: kp_sk        { compatible = "zmk,behavior-hold-tap"; label = "KP_SK";        #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&sk>; };         
-        mck: moml_mkp     { compatible = "zmk,behavior-hold-tap"; label = "MOML_MKP";     #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&mkp>; }; 
+        tkp: two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&kp>; }; 
+        ksk: kp_sk        { compatible = "zmk,behavior-hold-tap"; label = "KP_SK";        #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&sk>; }; 
         mmd: moml_macro   { compatible = "zmk,behavior-hold-tap"; label = "MOML_MACRO";   #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&dot_spc>; }; 
     };
   
@@ -79,37 +78,37 @@
         compatible = "zmk,keymap";
         abc {
             bindings = <
-                xx ASH(Q)  ASH(W)  ASH(D)  ASH(F)  &rst_all   &rst_all  ASH(J)  ASH(U)  ASH(P)  ASH(DEL)   xx
-                xx ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)     KERP      ASH(H)  ASH(E)  ASH(I)  ASH(O)     xx
-                xx ASH(Y)  ASH(X)  ASH(C)  ASH(V)  AS2(B)     ASH(G)    ASH(N)  ASH(M)  ASH(K)  ASH(L)     xx
-                xx KS(LCTRL) KS(LGUI) KS(LALT)  &mk 1 BSPC     &mk 2 SPACE  ASH(TAB)  ASH(ESC)  ASH(ENTER) xx
+                xxxx ASH(Q)  ASH(W)  ASH(D)  ASH(F)  &rst_all   &rst_all  ASH(J)  ASH(U)  ASH(P)  ASH(DEL)   xxxx
+                xxxx ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)     KERP      ASH(H)  ASH(E)  ASH(I)  ASH(O)     xxxx
+                xxxx ASH(Y)  ASH(X)  ASH(C)  ASH(V)  AS2(B)     ASH(G)    ASH(N)  ASH(M)  ASH(K)  ASH(L)     xxxx
+                xxxx ks(LCTRL) ks(LGUI) ks(LALT)  &mk 1 BSPC     &mk 2 SPACE  ASH(TAB)  ASH(ESC)  ASH(ENTER) xxxx
             >;  
         };
 
         nsy {
             bindings = <
-                xx ASH(GRAVE)  ASH(MINUS)  ASH(EQUAL) ASH(BSLH)  ____     ____  ASH(N7)  ASH(N8)  ASH(N9)  ____     xx
-                xx ASH(SEMI)   ASH(COMMA)  ASH(DOT)   ASH(SLASH) KERP     ____  ASH(N4)  ASH(N5)  ASH(N6)  xx       xx
-                xx PARS        ASH(LBKT)   ASH(RBKT)  ASH(SQT)   ____     ____  ASH(N1)  ASH(N2)  ASH(N3)  ASH(N0)  xx
-                xx ____        ____        ____       ____                      &mmd 3 D  ____    ____     ____     xx
+                xxxx ASH(GRAVE)  ASH(MINUS)  ASH(EQUAL) ASH(BSLH)  ____     ____  ASH(N7)  ASH(N8)  ASH(N9)  ____     xxxx
+                xxxx ASH(SEMI)   ASH(COMMA)  ASH(DOT)   ASH(SLASH) KERP     ____  ASH(N4)  ASH(N5)  ASH(N6)  xxxx     xxxx
+                xxxx PARS        ASH(LBKT)   ASH(RBKT)  ASH(SQT)   ____     ____  ASH(N1)  ASH(N2)  ASH(N3)  ASH(N0)  xxxx
+                xxxx ____        ____        ____       ____                      &mmd 3 D  ____    ____     ____     xxxx
             >;
         };
 
         nav { 
             bindings = <
-                xx ____   &kp CAPS  MOU_U    ____     ____     ____     ____      &kp UP    &kp PSCRN  ____       xx
-                xx CAWO   MOU_L     MOU_D  MOU_R      ____     ____     &kp LEFT  &kp DOWN  &kp RIGHT  &to NS     xx
-                xx MCK_L  MCK_R     SCR_U  SCR_D  &kp K_APP    &kp INS  &kp HOME  &kp END   &kp PG_UP  &kp PG_DN  xx
-                xx ____   ____      ____   KS(LSHFT)                         ____      ____      ____       ____   xx
+                xxxx ____   &kp CAPS  MOU_U    ____     ____     ____     ____      &kp UP    &kp PSCRN  ____       xxxx
+                xxxx CAWO   MOU_L     MOU_D  MOU_R      ____     ____     &kp LEFT  &kp DOWN  &kp RIGHT  &to NS     xxxx
+                xxxx MCK_L  MCK_R     SCR_U  SCR_D  &kp K_APP    &kp INS  &kp HOME  &kp END   &kp PG_UP  &kp PG_DN  xxxx
+                xxxx ____   ____      ____   ks(LSHFT)                        ____      ____      ____       ____   xxxx
             >;
         };
 
         fun {
             bindings = <
-                xx xx  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  xx    xx   xx  &kp C_BRI_DN  &kp C_BRI_UP  xx  xx 
-                xx &kp F1  &kp F2  &kp F3  &kp F4  &kp F5            &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  xx
-                xx &kt LCTRL  &kt LGUI  &kt LALT  &kt LSHFT          xx   xx  xx            &kp F11  &kp F12  xx
-                xx ____   ____      ____   KS(LSHFT)                          ____    ____   ____     ____     xx
+                xxxx xxxx  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  xxxx    xxxx   xxxx  &kp C_BRI_DN  &kp C_BRI_UP  xxxx  xxxx 
+                xxxx &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  xxxx
+                xxxx &kt LCTRL  &kt LGUI  &kt LALT  &kt LSHFT                    xxxx    xxxx    xxxx   &kp F11  &kp F12  xxxx
+                xxxx ____   ____      ____   ks(LSHFT)                                   ____    ____   ____     ____     xxxx
             >;
         };
     };
