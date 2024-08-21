@@ -74,6 +74,7 @@
     keymap {
         compatible = "zmk,keymap";
         abc {
+            label = "abc";
             bindings = <
                 xxxx ASH(Q)  ASH(W)  ASH(D)  ASH(F)  &rst_all        &rst_all     ASH(J)  ASH(U)  ASH(P)  ASH(DEL)   xxxx
                 xxxx ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(Z)          &key_repeat  ASH(H)  ASH(E)  ASH(I)  ASH(O)     xxxx
@@ -83,6 +84,7 @@
         };
 
         nsy {
+            label = "#-sym";
             bindings = <
                 xxxx ASH(GRAVE)  ASH(MINUS)  ASH(EQUAL) ASH(BSLH)  ____         ____  ASH(N7)  ASH(N8)  ASH(N9)  ____     xxxx
                 xxxx ASH(SEMI)   ASH(COMMA)  ASH(DOT)   ASH(SLASH) &key_repeat  ____  ASH(N4)  ASH(N5)  ASH(N6)  &to 2    xxxx
@@ -92,6 +94,7 @@
         };
 
         nav { 
+            label = "nav";
             bindings = <
                 xxxx xxxx  &caps_word  MOU_U  &kp CAPS  ____      ____     xxxx      &kp UP    &kp PSCRN  ____       xxxx
                 xxxx MCK_L  MOU_L      MOU_D  MOU_R     ____      ____     &kp LEFT  &kp DOWN  &kp RIGHT  &to 1      xxxx
@@ -101,6 +104,7 @@
         };
 
         fun {
+            label = "func";
             bindings = <
                 xxxx xxxx  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  xxxx     xxxx  xxxx  &kp C_BRI_DN  &kp C_BRI_UP  xxxx  xxxx 
                 xxxx &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  xxxx
