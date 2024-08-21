@@ -1,10 +1,5 @@
-name: Build ZMK firmware
-on:
-  workflow_dispatch:
-  push:
-    paths:
-      - "config/**"
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: petejohanson/zmk/.github/workflows/build-user-config.yml@core/zephyr-3.5-update
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
