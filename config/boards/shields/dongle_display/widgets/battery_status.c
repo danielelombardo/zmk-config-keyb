@@ -38,7 +38,7 @@ static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     rect_fill_dsc.bg_color = lv_color_white();
 
     lv_canvas_draw_rect(canvas, 0, 0, 2, 2, &rect_fill_dsc); // lv_canvas_set_px(canvas, 0, 0, lv_color_white());
-    lv_canvas_draw_rect(canvas, 7, 0, 8, 2, &rect_fill_dsc); // lv_canvas_set_px(canvas, 7, 0, lv_color_white());
+    lv_canvas_draw_rect(canvas, 6, 0, 8, 2, &rect_fill_dsc); // lv_canvas_set_px(canvas, 7, 0, lv_color_white());
 
     if (level > 90) {
         // full
