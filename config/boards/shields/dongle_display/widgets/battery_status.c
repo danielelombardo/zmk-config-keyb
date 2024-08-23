@@ -27,7 +27,7 @@ struct peripheral_battery_state {
     uint8_t level;
 };
     
-static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][5 * 12];
+static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][8 * 12];
 
 static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     // inverted colors
@@ -38,20 +38,20 @@ static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     rect_fill_dsc.bg_color = lv_color_white();
 
     lv_canvas_set_px(canvas, 0, 0, lv_color_white());
-    lv_canvas_set_px(canvas, 4, 0, lv_color_white());
+    lv_canvas_set_px(canvas, 7, 0, lv_color_white());
 
     if (level > 90) {
         // full
     } else if (level > 70) {
-        lv_canvas_draw_rect(canvas, 1, 2, 3, 2, &rect_fill_dsc);
+        lv_canvas_draw_rect(canvas, 1, 2, 6, 2, &rect_fill_dsc);
     } else if (level > 50) {
-        lv_canvas_draw_rect(canvas, 1, 2, 3, 3, &rect_fill_dsc);
+        lv_canvas_draw_rect(canvas, 1, 2, 6, 3, &rect_fill_dsc);
     } else if (level > 30) {
-        lv_canvas_draw_rect(canvas, 1, 2, 3, 5, &rect_fill_dsc);
+        lv_canvas_draw_rect(canvas, 1, 2, 6, 5, &rect_fill_dsc);
     } else if (level > 10) {
-        lv_canvas_draw_rect(canvas, 1, 2, 3, 7, &rect_fill_dsc);
+        lv_canvas_draw_rect(canvas, 1, 2, 6, 7, &rect_fill_dsc);
     } else {
-        lv_canvas_draw_rect(canvas, 1, 2, 3, 8, &rect_fill_dsc);
+        lv_canvas_draw_rect(canvas, 1, 2, 6, 8, &rect_fill_dsc);
     }
 }
 
@@ -98,10 +98,10 @@ int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_batte
         lv_obj_t *image_canvas = lv_canvas_create(widget->obj);
         lv_obj_t *battery_label = lv_label_create(widget->obj);
 
-        lv_canvas_set_buffer(image_canvas, battery_image_buffer[i], 5, 12, LV_IMG_CF_TRUE_COLOR);
+        lv_canvas_set_buffer(image_canvas, battery_image_buffer[i], 8, 12, LV_IMG_CF_TRUE_COLOR);
 
         lv_obj_align(image_canvas, LV_ALIGN_TOP_RIGHT, 0, i * 14);
-        lv_obj_align(battery_label, LV_ALIGN_TOP_RIGHT, -7, i * 14);
+        lv_obj_align(battery_label, LV_ALIGN_TOP_RIGHT, -10, i * 16);
     }
 
     sys_slist_append(&widgets, &widget->node);
