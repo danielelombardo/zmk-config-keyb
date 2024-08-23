@@ -25,6 +25,14 @@ endif
 
 if LVGL
 
+choice LV_FONT_DEFAULT
+    default LV_FONT_DEFAULT_MONTSERRAT_14
+endchoice
+
+choice ZMK_LV_FONT_DEFAULT_SMALL
+    default ZMK_LV_FONT_DEFAULT_SMALL_MONTSERRAT_14
+endchoice
+
 config LV_Z_VDB_SIZE
     default 64
 
