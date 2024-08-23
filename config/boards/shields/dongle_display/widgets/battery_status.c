@@ -37,21 +37,19 @@ static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     lv_draw_rect_dsc_init(&rect_fill_dsc);
     rect_fill_dsc.bg_color = lv_color_white();
 
-    lv_canvas_set_px(canvas, 0, 0, lv_color_white());
-    lv_canvas_set_px(canvas, 7, 0, lv_color_white());
+    lv_canvas_draw_rect(canvas, 0, 0, 2, 2, &rect_fill_dsc); // lv_canvas_set_px(canvas, 0, 0, lv_color_white());
+    lv_canvas_draw_rect(canvas, 7, 0, 8, 2, &rect_fill_dsc); // lv_canvas_set_px(canvas, 7, 0, lv_color_white());
 
     if (level > 90) {
         // full
     } else if (level > 70) {
-        lv_canvas_draw_rect(canvas, 1, 2, 6, 2, &rect_fill_dsc);
+        lv_canvas_draw_rect(canvas, 1, 3, 6, 5, &rect_fill_dsc);
     } else if (level > 50) {
-        lv_canvas_draw_rect(canvas, 1, 2, 6, 3, &rect_fill_dsc);
+        lv_canvas_draw_rect(canvas, 1, 3, 6, 6, &rect_fill_dsc);
     } else if (level > 30) {
-        lv_canvas_draw_rect(canvas, 1, 2, 6, 5, &rect_fill_dsc);
-    } else if (level > 10) {
-        lv_canvas_draw_rect(canvas, 1, 2, 6, 7, &rect_fill_dsc);
+        lv_canvas_draw_rect(canvas, 1, 3, 6, 7, &rect_fill_dsc);
     } else {
-        lv_canvas_draw_rect(canvas, 1, 2, 6, 8, &rect_fill_dsc);
+        lv_canvas_draw_rect(canvas, 1, 3, 6, 9, &rect_fill_dsc);
     }
 }
 
