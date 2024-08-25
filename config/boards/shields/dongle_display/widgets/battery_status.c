@@ -42,11 +42,11 @@ static void draw_battery(lv_obj_t *canvas, uint8_t level) {
 
     if (level > 90) {
         // full
-    } else if (level > 70) {
+    } else if (level > 75) {
         lv_canvas_draw_rect(canvas, 1, 3, 6, 2, &rect_fill_dsc);
     } else if (level > 50) {
         lv_canvas_draw_rect(canvas, 1, 3, 6, 4, &rect_fill_dsc);
-    } else if (level > 30) {
+    } else if (level > 25) {
         lv_canvas_draw_rect(canvas, 1, 3, 6, 6, &rect_fill_dsc);
     } else {
         lv_canvas_draw_rect(canvas, 1, 3, 6, 8, &rect_fill_dsc);
