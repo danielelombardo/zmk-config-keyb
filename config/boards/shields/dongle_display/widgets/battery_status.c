@@ -25,6 +25,7 @@ static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 struct peripheral_battery_state {
     uint8_t source;
     uint8_t level;
+    bool usb_present;
 };
     
 static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][8 * 12];
@@ -58,7 +59,11 @@ static void set_battery_symbol(lv_obj_t *widget, struct peripheral_battery_state
     lv_obj_t *label = lv_obj_get_child(widget, state.source * 2 + 1);
 
     draw_battery(symbol, state.level);
-    lv_label_set_text_fmt(label, "%3u%%", state.level);
+    if (state.usb_present) {
+        lv_label_set_text_fmt(label, "+%3u%%", state.level);
+    } else {
+        lv_label_set_text_fmt(label, "%3u%%", state.level);
+    }
     
     if (state.level > 0) {
         lv_obj_clear_flag(symbol, LV_OBJ_FLAG_HIDDEN);
@@ -79,6 +84,7 @@ static struct peripheral_battery_state battery_status_get_state(const zmk_event_
     return (struct peripheral_battery_state){
         .source = ev->source,
         .level = ev->state_of_charge,
+        .usb_present = zm_usb_is_powered(),
     };
 }
 
