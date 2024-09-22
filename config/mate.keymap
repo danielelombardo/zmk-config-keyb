@@ -7,9 +7,10 @@
 
 #define AZ  0
 #define NS  1
-#define NV  2
-#define NVL  3
-#define FU  4
+#define FU  2
+#define NV  3
+#define NVM  4
+#define NVL  5
 
 #define xxxx &none
 #define ____ &trans
@@ -67,7 +68,8 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        nav_lock { if-layers = <3>; then-layer = <2>; };
+        nav_mom  { if-layers = <4>; then-layer = <3>; };
+        nav_lock { if-layers = <5>; then-layer = <3>; };
     };
 
     behaviors {
@@ -85,7 +87,7 @@
                 xxxx ASH(Q)  ASH(W)  ASH(D)  ASH(F)  &rst_all        &rst_all     ASH(J)  ASH(U)  ASH(P)  ASH(DEL)   xxxx
                 xxxx ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(B)          &key_repeat  ASH(H)  ASH(E)  ASH(I)  ASH(O)     xxxx
                 xxxx ASH(Y)  ASH(X)  ASH(C)  ASH(V)  ASH(Z)          ASH(G)       ASH(N)  ASH(M)  ASH(K)  ASH(L)     xxxx
-                xxxx ks(LCTRL) ks(LGUI) ks(LALT)  &mk 1 BSPC             &mk 2 SPACE  ASH(TAB)  ASH(ESC)  ASH(ENTER) xxxx
+                xxxx ks(LCTRL) ks(LGUI) ks(LALT)  &mk 1 BSPC             &mk 4 SPACE  ASH(TAB)  ASH(ESC)  ASH(ENTER) xxxx
             >;  
         };
 
@@ -95,17 +97,37 @@
                 xxxx ASH(GRAVE)  ASH(MINUS)  ASH(EQUAL) ASH(BSLH)  ____         ____  ASH(N7)  ASH(N8)  ASH(N9)  ____     xxxx
                 xxxx ASH(SQT)    ASH(COMMA)  ASH(DOT)   ASH(SLASH) &key_repeat  ____  ASH(N4)  ASH(N5)  ASH(N6)  ____     xxxx
                 xxxx PARS        ASH(LBKT)   ASH(RBKT)  ASH(SEMI)  ____         ____  ASH(N1)  ASH(N2)  ASH(N3)  ASH(N0)  xxxx
-                xxxx ____  ____  ____  ____                                                   &mmd 4 D  ____  ____  ____  xxxx
+                xxxx ____  ____  ____  ____                                                   &mmd 2 D  ____  ____  ____  xxxx
+            >;
+        };
+
+        fun {
+            label = "  f~";
+            bindings = <
+                xxxx xxxx  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  xxxx     xxxx  xxxx  &kp C_BRI_DN  &kp C_BRI_UP  xxxx  xxxx 
+                xxxx &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  xxxx
+                xxxx &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT                    xxxx    xxxx    xxxx   &kp F11  &kp F12  xxxx
+                xxxx ____  ____  ____  ks(LSHFT)                                                  ____  ____  ____  ____  xxxx
             >;
         };
 
         nav { 
             label = " <^v>";
             bindings = <
-                xxxx xxxx  &caps_word  MOU_U  &kp PSCRN  ____     ____     &kp HOME  &kp UP    &kp END    ____    xxxx
-                xxxx MCK_L     MOU_L   MOU_D  MOU_R      ____     ____     &kp LEFT  &kp DOWN  &kp RIGHT  ____    xxxx
-                xxxx &kp CAPS  MCK_R   SCR_U  SCR_D  &kp K_APP    &kp INS  &kp PG_UP &kp PG_DN &to 1      &tog 3  xxxx
-                xxxx ks(RCTRL) ks(RGUI) ks(RALT)  ks(RSHFT)                             ____  ____  ____  ____    xxxx
+                xxxx xxxx  &caps_word  MOU_U  &kp PSCRN  ____     ____     &kp HOME   &kp UP     &kp END    ____    xxxx
+                xxxx MCK_L     MOU_L   MOU_D  MOU_R      ____     ____     &kp LEFT   &kp DOWN   &kp RIGHT  ____    xxxx
+                xxxx &kp CAPS  MCK_R   SCR_U  SCR_D  &kp K_APP    &kp INS  &kp PG_UP  &kp PG_DN  &to 1      &tog 5  xxxx
+                xxxx ks(RCTRL) ks(RGUI) ks(RALT)  ks(RSHFT)                               ____  ____  ____  ____    xxxx
+            >;
+        };
+
+        navm { 
+            label = " <^v>";
+            bindings = <
+                ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
+                ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
+                ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
+                ____  ____  ____  ____  ____                 ____  ____  ____  ____  ____ 
             >;
         };
 
@@ -119,14 +141,5 @@
             >;
         };
 
-        fun {
-            label = "  f~";
-            bindings = <
-                xxxx xxxx  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  xxxx     xxxx  xxxx  &kp C_BRI_DN  &kp C_BRI_UP  xxxx  xxxx 
-                xxxx &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  xxxx
-                xxxx &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT                    xxxx    xxxx    xxxx   &kp F11  &kp F12  xxxx
-                xxxx ____  ____  ____  ks(LSHFT)                                                  ____  ____  ____  ____  xxxx
-            >;
-        };
     };
 };
