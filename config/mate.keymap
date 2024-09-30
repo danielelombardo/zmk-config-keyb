@@ -15,8 +15,9 @@
 #define xxxx &none
 #define ____ &trans
 #define ASH(l) &tkp LS(l) l 
+#define ssh(l) &skp LS(l) l 
 #define ks(l) &ksk l l 
-#define PARS &tkp RPAR LPAR
+#define PARS &skp RPAR LPAR
 
 #define VX &tkp LC(X) LC(V)
 #define CZ &tkp LC(Z) LC(C)
@@ -75,6 +76,7 @@
     behaviors {
         mk:  moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
         tkp: two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&kp>; }; 
+        skp: slow_two_kp  { compatible = "zmk,behavior-hold-tap"; label = "SLOW_TWO_KP";  #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&kp>; }; 
         ksk: kp_sk        { compatible = "zmk,behavior-hold-tap"; label = "KP_SK";        #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; }; 
         mmd: moml_macro   { compatible = "zmk,behavior-hold-tap"; label = "MOML_MACRO";   #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&dot_spc>; }; 
     };
@@ -86,8 +88,8 @@
             bindings = <
                 xxxx ASH(Q)  ASH(W)  ASH(D)  ASH(F)  &rst_all        &rst_all     ASH(J)  ASH(U)  ASH(P)  ASH(DEL)   xxxx
                 xxxx ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(B)          &key_repeat  ASH(H)  ASH(E)  ASH(I)  ASH(O)     xxxx
-                xxxx ks(Y)   ks(X)   ks(C)   ks(V)   ks(Z)           ks(G)        ks(N)   ks(M)   ks(K)   ks(L)      xxxx
-                xxxx ks(LCTRL) ks(LGUI) ks(LALT)  &mk 1 BSPC                 &mk 4 SPACE  ks(TAB) ks(ESC) ks(ENTER)  xxxx
+                xxxx ssh(Y)  ssh(X)  ssh(C)  ssh(V)  ssh(Z)          ssh(G)       ssh(N)  ssh(M)  ssh(K)  ssh(L)     xxxx
+                xxxx ks(LCTRL) ks(LGUI) ks(LALT)  &mk 1 BSPC              &mk 4 SPACE  ssh(TAB) ssh(ESC) ssh(ENTER)  xxxx
             >;  
         };
 
@@ -96,7 +98,7 @@
             bindings = <
                 xxxx ASH(GRAVE)  ASH(MINUS)  ASH(EQUAL) ASH(BSLH)  ____         ____  ASH(N7)  ASH(N8)  ASH(N9)  ____     xxxx
                 xxxx ASH(SQT)    ASH(COMMA)  ASH(DOT)   ASH(SLASH) &key_repeat  ____  ASH(N4)  ASH(N5)  ASH(N6)  ____     xxxx
-                xxxx PARS        ks(LBKT)    ks(RBKT)   ks(SEMI)   ____         ____  ks(N1)   ks(N2)   ks(N3)   ks(N0)   xxxx
+                xxxx PARS        ssh(LBKT)   ssh(RBKT)  ssh(SEMI)  ____         ____  ssh(N1)  ssh(N2)  ssh(N3)  ssh(N0)  xxxx
                 xxxx ____  ____  ____  ____                                                   &mmd 2 D  ____  ____  ____  xxxx
             >;
         };
@@ -112,7 +114,7 @@
         };
 
         nav { 
-            label = "<∧∨>";
+            label = "<▲▼>";
             bindings = <
                 xxxx xxxx  &caps_word  MOU_U  &kp PSCRN  ____     ____     &kp HOME   &kp UP     &kp END    ____    xxxx
                 xxxx MCK_L     MOU_L   MOU_D  MOU_R      ____     ____     &kp LEFT   &kp DOWN   &kp RIGHT  ____    xxxx
@@ -122,7 +124,7 @@
         };
 
         navm { 
-            label = "<∧∨>";
+            label = "<▲▼>";
             bindings = <
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
@@ -132,7 +134,7 @@
         };
 
         navl { 
-            label = "<∧∨> ⁜";
+            label = "<▲▼> ◆";
             bindings = <
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
