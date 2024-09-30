@@ -114,7 +114,7 @@
         };
 
         nav { 
-            label = "<▲▼>";
+            label = "<+>";
             bindings = <
                 xxxx xxxx  &caps_word  MOU_U  &kp PSCRN  ____     ____     &kp HOME   &kp UP     &kp END    ____    xxxx
                 xxxx MCK_L     MOU_L   MOU_D  MOU_R      ____     ____     &kp LEFT   &kp DOWN   &kp RIGHT  ____    xxxx
@@ -124,7 +124,7 @@
         };
 
         navm { 
-            label = "<▲▼>";
+            label = "<+>";
             bindings = <
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
@@ -134,7 +134,7 @@
         };
 
         navl { 
-            label = "<▲▼> ◆";
+            label = "<+> =";
             bindings = <
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
