@@ -98,8 +98,8 @@
             bindings = <
                 xxxx xxxx       ASH(LBKT)   ASH(RBKT)  ASH(GRAVE)  ____    ____ ASH(BSLH)  ASH(SEMI)  ssh(SLASH)   ____  xxxx
                 xxxx ASH(N1)    ASH(N2)     ASH(N3)    ASH(N4)  ASH(N5)    ____ ASH(N6)    ASH(N7)    ASH(N8)   ASH(N9)  xxxx
-                xxxx ssh(MINUS) ssh(EQUAL)  xxxx    &caps_word    ____    ____ ssh(SQT)  ssh(COMMA)  ssh(DOT)  ssh(N0)  xxxx
-                xxxx ____  ____  ____  &mmd 2 D                                                  ____  ____  ____  ____  xxxx
+                xxxx ssh(MINUS) ssh(EQUAL)  xxxx    &caps_word    ____     ____ ssh(SQT)  ssh(COMMA)  ssh(DOT)  ssh(N0)  xxxx
+                xxxx ____  ____  ____  &mk 2 BSPC                                                ____  ____  ____  ____  xxxx
             >;
         };
 
