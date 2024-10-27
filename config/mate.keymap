@@ -86,40 +86,40 @@
         abc {
             label = "ABC";
             bindings = <
-                xxxx ASH(Q)  ASH(W)  ASH(D)  ASH(F)  &rst_all        &rst_all     ASH(J)  ASH(U)  ASH(P)  ASH(DEL)   xxxx
-                xxxx ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(B)          &key_repeat  ASH(H)  ASH(E)  ASH(I)  ASH(O)     xxxx
-                xxxx ssh(Y)  ssh(X)  ssh(C)  ssh(V)  ssh(Z)          ssh(G)       ssh(N)  ssh(M)  ssh(K)  ssh(L)     xxxx
-                xxxx ks(LCTRL) ks(LGUI) ks(LALT)  &mk 4 BSPC              &mk 1 SPACE  ssh(TAB) ssh(ESC) ssh(ENTER)  xxxx
-            >;  
+                xxxx      ASH(Q)  ASH(W)  ASH(D)  ASH(F)  &rst_all        &rst_all     ASH(J)  ASH(U)  ASH(P)  ASH(DEL)   xxxx
+                xxxx      ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(B)          &key_repeat  ASH(H)  ASH(E)  ASH(I)  ASH(O)     &tog 2
+                &tog 5    ssh(Y)  ssh(X)  ssh(C)  ssh(V)  ssh(Z)          ssh(G)       ssh(N)  ssh(M)  ssh(K)  ssh(L)     &tog 1
+                ks(LSHFT) ks(LCTRL) ks(LGUI) ks(LALT)  &mk 4 BSPC              &mk 1 SPACE  ssh(TAB) ssh(ESC) ssh(ENTER)  &dot_spc
+            >; 
         };
 
         nsy {
             label = " # 1";
             bindings = <
-                xxxx xxxx       ASH(LBKT)   ASH(RBKT)  ASH(GRAVE)  ____    ____ ASH(BSLH)  ASH(SEMI)  ssh(SLASH)   ____  xxxx
-                xxxx ASH(N1)    ASH(N2)     ASH(N3)    ASH(N4)  ASH(N5)    ____ ASH(N6)    ASH(N7)    ASH(N8)   ASH(N9)  xxxx
-                xxxx ssh(MINUS) ssh(EQUAL)  xxxx    &caps_word    ____     ____ ssh(SQT)  ssh(COMMA)  ssh(DOT)  ssh(N0)  xxxx
-                xxxx ____  ____  ____  &mk 2 BSPC                                                ____  ____  ____  ____  xxxx
+                ____ xxxx       ASH(BSLH)  ASH(GRAVE)  xxxx        ____        ____    xxxx      ASH(LBKT)  ASH(RBKT)  ____     ____
+                ____ ASH(N1)    ASH(N2)     ASH(N3)    ASH(N4)  ASH(N5)        ASH(N6) ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____
+                ____ ssh(MINUS) ssh(EQUAL)  ssh(SLASH) &caps_word  &kp CAPS    xxxx    ssh(SQT)  ssh(SEMI)  ssh(COMMA) ssh(DOT) ____
+                ____ ____  ____  ____  &mk 2 BSPC                                                       ____  ____  ____  ____  ____
             >;
         };
 
         fun {
             label = "  f~";
             bindings = <
-                xxxx xxxx  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  xxxx     xxxx  xxxx  &kp C_BRI_DN  &kp C_BRI_UP  xxxx  xxxx 
-                xxxx &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  xxxx
-                xxxx &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT  xxxx              xxxx    xxxx    xxxx   &kp F11  &kp F12  xxxx
-                xxxx ____  ____  ____  ks(LSHFT)                                                  ____  ____  ____  ____  xxxx
+                ____ xxxx  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  xxxx     xxxx  xxxx  &kp C_BRI_DN  &kp C_BRI_UP  xxxx  ____
+                ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  ____
+                ____ &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT  xxxx              xxxx    xxxx    xxxx   &kp F11  &kp F12  ____
+                ____ ____  ____  ____  ____                                                  ks(LSHFT)  ____  ____  ____  ____
             >;
         };
 
         nav { 
             label = "<+>";
             bindings = <
-                xxxx xxxx      &tog 5  MOU_U  &kp PSCRN  ____      ____     &kp HOME   &kp UP     &kp END    ____  xxxx
-                xxxx MCK_L     MOU_L   MOU_D  MOU_R  &key_repeat   ____     &kp LEFT   &kp DOWN   &kp RIGHT  ____  xxxx
-                xxxx ks(LSHFT) MCK_R   SCR_U  SCR_D  &kp K_APP     &kp INS  &kp PG_UP  &kp PG_DN  &kp CAPS   ____  xxxx
-                xxxx ks(RCTRL) ks(RGUI) ks(RALT)  ____                                ks(RSHFT)  ____  ____  ____  xxxx
+                ____ xxxx      &tog 5  MOU_U  &kp PSCRN  ____            ____  &kp HOME   &kp UP     &kp END   ____  ____
+                ____ MCK_L     MOU_L   MOU_D  MOU_R  &key_repeat         ____  &kp LEFT   &kp DOWN   &kp RIGHT xxxx  ____
+                ____ ks(LSHFT) MCK_R   SCR_U  SCR_D  &kp K_APP           xxxx  &kp PG_UP  &kp PG_DN  &kp INS   xxxx  ____
+                ____ ks(RCTRL) ks(RGUI) ks(RALT)  ____                           &tkp RSHFT SPACE  ____  ____  ____  ____
             >;
         };
 
