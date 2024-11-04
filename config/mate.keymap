@@ -60,9 +60,9 @@
 / { 
     macros {
         rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>; };
+            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI> &kp RSHFT &kp RCTRL &kp RALT &kp RGUI>; };
         rst_all:  rst_all  { compatible = "zmk,behavior-macro"; label = "ZM_rst_all"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI>, <&macro_tap &to 0>; };
+            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp RSHFT &kp RCTRL &kp RALT &kp RGUI>, <&macro_tap &to 0>; };
         dot_spc:  dot_spc  { compatible = "zmk,behavior-macro"; label = "ZM_dot_spc"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp DOT &kp SPACE &sk LSHFT>; };
     };
