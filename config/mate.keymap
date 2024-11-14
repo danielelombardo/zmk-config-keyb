@@ -84,7 +84,7 @@
     keymap {
         compatible = "zmk,keymap";
         abc {
-            label = "ABC";
+            label = "A";
             bindings = <
                 &kp ESC    ASH(Q)  ASH(W)  ASH(D)  ASH(F)  ASH(G)          &rst_all     ASH(J)  ASH(U)  ASH(P)  ASH(DEL)  &tog 2
                 &kp TAB    ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(B)          &key_repeat  ASH(H)  ASH(E)  ASH(I)  ASH(O)    &tog 1
@@ -94,7 +94,7 @@
         };
 
         nsy {
-            label = " # 1";
+            label = "1";
             bindings = <
                 ____ &tog 2     ASH(BSLH)  ASH(GRAVE)  xxxx   &rst_all      ____     xxxx    ASH(LBKT)  ASH(RBKT)  ____     ____
                 ____ ASH(N1)     ASH(N2)    ASH(N3)  ASH(N4)  ASH(N5)     ASH(N6)  ASH(N7)    ASH(N8)    ASH(N9)   ASH(N0)  ____
@@ -104,7 +104,7 @@
         };
 
         fun {
-            label = "  f~";
+            label = "ƒ";
             bindings = <
                 ____ &tog 2  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &rst_all    ____ xxxx &kp C_BRI_DN &kp C_BRI_UP xxxx ____
                 ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  ____
@@ -114,7 +114,7 @@
         };
 
         nav { 
-            label = "<+>";
+            label = "#";
             bindings = <
                 ____  xxxx      xxxx   MOU_U  &kp PSCRN  &rst_all        ____  &kp HOME   &kp UP     &kp END   ____  ____
                 ____  MCK_L     MOU_L  MOU_D  MOU_R  &key_repeat         ____  &kp LEFT   &kp DOWN   &kp RIGHT xxxx  ____
@@ -124,7 +124,7 @@
         };
 
         navm { 
-            label = "<+>";
+            label = "#";
             bindings = <
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
@@ -134,7 +134,7 @@
         };
 
         navl { 
-            label = "<+> =";
+            label = "+";
             bindings = <
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 

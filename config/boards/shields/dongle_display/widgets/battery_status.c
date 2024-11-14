@@ -38,20 +38,8 @@ static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     lv_draw_rect_dsc_init(&rect_fill_dsc);
     rect_fill_dsc.bg_color = lv_color_white();
 
-    lv_canvas_draw_rect(canvas, 0, 0, 2, 2, &rect_fill_dsc); // lv_canvas_set_px(canvas, 0, 0, lv_color_white());
-    lv_canvas_draw_rect(canvas, 6, 0, 8, 2, &rect_fill_dsc); // lv_canvas_set_px(canvas, 7, 0, lv_color_white());
-
-    if (level > 90) {
-        // full
-    } else if (level > 75) {
-        lv_canvas_draw_rect(canvas, 1, 3, 6, 2, &rect_fill_dsc);
-    } else if (level > 50) {
-        lv_canvas_draw_rect(canvas, 1, 3, 6, 4, &rect_fill_dsc);
-    } else if (level > 25) {
-        lv_canvas_draw_rect(canvas, 1, 3, 6, 6, &rect_fill_dsc);
-    } else {
-        lv_canvas_draw_rect(canvas, 1, 3, 6, 8, &rect_fill_dsc);
-    }
+    emptied = 32 * (level / 100 - 1);
+    lv_canvas_draw_rect(canvas, 0, 0, 2, &emptied, &rect_fill_dsc);
 }
 
 static void set_battery_symbol(lv_obj_t *widget, struct peripheral_battery_state state) {
@@ -62,7 +50,7 @@ static void set_battery_symbol(lv_obj_t *widget, struct peripheral_battery_state
     // if (state.usb_present) {
     //     lv_label_set_text_fmt(label, "+%3u%%", state.level);
     // } else {
-    lv_label_set_text_fmt(label, "%3u%%", state.level);
+    // lv_label_set_text_fmt(label, "%3u%%", state.level);
     // }
     
     if (state.level > 0) {
@@ -100,12 +88,12 @@ int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_batte
 
     for (int i = 0; i < ZMK_SPLIT_BLE_PERIPHERAL_COUNT; i++) {
         lv_obj_t *image_canvas = lv_canvas_create(widget->obj);
-        lv_obj_t *battery_label = lv_label_create(widget->obj);
+        // lv_obj_t *battery_label = lv_label_create(widget->obj);
 
-        lv_canvas_set_buffer(image_canvas, battery_image_buffer[i], 8, 12, LV_IMG_CF_TRUE_COLOR);
+        lv_canvas_set_buffer(image_canvas, battery_image_buffer[i], 4, 32, LV_IMG_CF_TRUE_COLOR);
 
-        lv_obj_align(image_canvas, LV_ALIGN_TOP_RIGHT, 0, i * 16);
-        lv_obj_align(battery_label, LV_ALIGN_TOP_RIGHT, -10, i * 14);
+        lv_obj_align(image_canvas, LV_ALIGN_TOP_RIGHT, i * 4, 0);
+        // lv_obj_align(battery_label, LV_ALIGN_TOP_RIGHT, -10, i * 14);
     }
 
     sys_slist_append(&widgets, &widget->node);
