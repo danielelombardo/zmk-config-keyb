@@ -28,17 +28,17 @@ struct peripheral_battery_state {
     bool usb_present;
 };
     
-static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][20 * 32];
+static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][9 * 32];
 
 static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     // inverted colors
-    lv_canvas_fill_bg(canvas, lv_color_black(), LV_OPA_COVER);
+    lv_canvas_fill_bg(canvas, lv_color_white(), LV_OPA_COVER);
     
     lv_draw_rect_dsc_t rect_fill_dsc;
     lv_draw_rect_dsc_init(&rect_fill_dsc);
-    rect_fill_dsc.bg_color = lv_color_white();
+    rect_fill_dsc.bg_color = lv_color_black();
 
-    lv_canvas_draw_rect(canvas, 0, 0, 3, 33 - (level / 3), &rect_fill_dsc);
+    lv_canvas_draw_rect(canvas, 0, 0, 5, level / 3, &rect_fill_dsc);
 }
 
 static void set_battery_symbol(lv_obj_t *widget, struct peripheral_battery_state state) {
