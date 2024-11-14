@@ -38,7 +38,7 @@ static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     lv_draw_rect_dsc_init(&rect_fill_dsc);
     rect_fill_dsc.bg_color = lv_color_white();
 
-    lv_canvas_draw_rect(canvas, 0, 0, 5, 32 * (level / 100 - 1), &rect_fill_dsc);
+    lv_canvas_draw_rect(canvas, 0, 0, 3, 33 - (level / 3), &rect_fill_dsc);
 }
 
 static void set_battery_symbol(lv_obj_t *widget, struct peripheral_battery_state state) {
