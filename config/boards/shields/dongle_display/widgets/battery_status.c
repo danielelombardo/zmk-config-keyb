@@ -38,8 +38,7 @@ static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     lv_draw_rect_dsc_init(&rect_fill_dsc);
     rect_fill_dsc.bg_color = lv_color_white();
 
-    uint8_t emptied = 32 * (level / 100 - 1);
-    lv_canvas_draw_rect(canvas, 0, 0, 5, &emptied, &rect_fill_dsc);
+    lv_canvas_draw_rect(canvas, 0, 0, 5, 32 * (level / 100 - 1), &rect_fill_dsc);
 }
 
 static void set_battery_symbol(lv_obj_t *widget, struct peripheral_battery_state state) {
@@ -92,7 +91,7 @@ int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_batte
 
         lv_canvas_set_buffer(image_canvas, battery_image_buffer[i], 9, 32, LV_IMG_CF_TRUE_COLOR);
 
-        lv_obj_align(image_canvas, LV_ALIGN_TOP_RIGHT, i * 10, 0);
+        lv_obj_align(image_canvas, LV_ALIGN_TOP_LEFT, i * 10, 0);
         // lv_obj_align(battery_label, LV_ALIGN_TOP_RIGHT, -10, i * 14);
     }
 
