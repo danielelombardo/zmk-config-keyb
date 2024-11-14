@@ -28,7 +28,7 @@ struct peripheral_battery_state {
     bool usb_present;
 };
     
-static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][4 * 32];
+static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][20 * 32];
 
 static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     // inverted colors
@@ -39,7 +39,7 @@ static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     rect_fill_dsc.bg_color = lv_color_white();
 
     uint8_t emptied = 32 * (level / 100 - 1);
-    lv_canvas_draw_rect(canvas, 0, 0, 2, &emptied, &rect_fill_dsc);
+    lv_canvas_draw_rect(canvas, 0, 0, 5, &emptied, &rect_fill_dsc);
 }
 
 static void set_battery_symbol(lv_obj_t *widget, struct peripheral_battery_state state) {
@@ -84,15 +84,15 @@ ZMK_SUBSCRIPTION(widget_battery_status, zmk_peripheral_battery_state_changed);
 int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_battery_status *widget, lv_obj_t *parent) {
     widget->obj = lv_obj_create(parent);
 
-    lv_obj_set_size(widget->obj, 10 , 32);
+    lv_obj_set_size(widget->obj, 20 , 32);
 
     for (int i = 0; i < ZMK_SPLIT_BLE_PERIPHERAL_COUNT; i++) {
         lv_obj_t *image_canvas = lv_canvas_create(widget->obj);
         // lv_obj_t *battery_label = lv_label_create(widget->obj);
 
-        lv_canvas_set_buffer(image_canvas, battery_image_buffer[i], 4, 32, LV_IMG_CF_TRUE_COLOR);
+        lv_canvas_set_buffer(image_canvas, battery_image_buffer[i], 9, 32, LV_IMG_CF_TRUE_COLOR);
 
-        lv_obj_align(image_canvas, LV_ALIGN_TOP_RIGHT, i * 4, 0);
+        lv_obj_align(image_canvas, LV_ALIGN_TOP_RIGHT, i * 10, 0);
         // lv_obj_align(battery_label, LV_ALIGN_TOP_RIGHT, -10, i * 14);
     }
 
