@@ -29,7 +29,7 @@ lv_obj_t *zmk_display_status_screen() {
     screen = lv_obj_create(NULL);
 
     lv_style_init(&global_style);
-    lv_style_set_text_font(&global_style, &lv_font_montserrat_22);
+    lv_style_set_text_font(&global_style, &lv_font_montserrat_24);
     lv_style_set_text_letter_space(&global_style, 1);
     lv_style_set_text_line_space(&global_style, 1);
     lv_style_set_text_align(&global_style, LV_TEXT_ALIGN_CENTER);
