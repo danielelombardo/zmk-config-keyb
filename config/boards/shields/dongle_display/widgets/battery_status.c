@@ -72,7 +72,7 @@ int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_batte
 
     for (int i = 0; i < ZMK_SPLIT_BLE_PERIPHERAL_COUNT; i++) {
         lv_obj_t *battery_label = lv_label_create(widget->obj);
-        lv_obj_align(battery_label, LV_ALIGN_BOTTOM_RIGHT, - 40 + i * 20, 5);
+        lv_obj_align(battery_label, LV_ALIGN_BOTTOM_LEFT, i * 80, 0);
         // lv_obj_add_flag(battery_label, LV_OBJ_FLAG_HIDDEN);
     }
 
