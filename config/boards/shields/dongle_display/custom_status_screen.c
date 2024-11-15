@@ -32,6 +32,7 @@ lv_obj_t *zmk_display_status_screen() {
     lv_style_set_text_font(&global_style, &lv_font_montserrat_24);
     lv_style_set_text_letter_space(&global_style, 1);
     lv_style_set_text_line_space(&global_style, 1);
+    lv_style_set_text_align(&global_style, LV_TEXT_ALIGN_CENTER);
     lv_obj_add_style(screen, &global_style, LV_PART_MAIN);
     
     zmk_widget_layer_status_init(&layer_status_widget, screen);

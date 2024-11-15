@@ -28,7 +28,7 @@ struct peripheral_battery_state {
     bool usb_present;
 };
     
-static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][9 * 15];
+// static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][9 * 15];
 
 static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     // inverted colors
@@ -91,7 +91,7 @@ int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_batte
 
         // lv_canvas_set_buffer(image_canvas, battery_image_buffer[i], 9, 15, LV_IMG_CF_TRUE_COLOR);
         // lv_obj_align(image_canvas, LV_ALIGN_TOP_RIGHT, i * 10, 0);
-        
+
         lv_obj_align(battery_label, LV_ALIGN_TOP_RIGHT, i * 10, 0);
     }
 
