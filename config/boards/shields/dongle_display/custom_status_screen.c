@@ -29,20 +29,20 @@ lv_obj_t *zmk_display_status_screen() {
     screen = lv_obj_create(NULL);
 
     lv_style_init(&global_style);
-    lv_style_set_text_font(&global_style, &lv_font_montserrat_24);
+    lv_style_set_text_font(&global_style, &lv_font_montserrat_16);
     lv_style_set_text_letter_space(&global_style, 1);
     lv_style_set_text_line_space(&global_style, 1);
     lv_style_set_text_align(&global_style, LV_TEXT_ALIGN_CENTER);
     lv_obj_add_style(screen, &global_style, LV_PART_MAIN);
     
     zmk_widget_layer_status_init(&layer_status_widget, screen);
-    lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_BOTTOM_LEFT, 0, 0);
+    lv_obj_align(zmk_widget_layer_status_obj(&layer_status_widget), LV_ALIGN_BOTTOM_LEFT, 0, -6);
 
     zmk_widget_peripheral_battery_status_init(&peripheral_battery_status_widget, screen);
     lv_obj_align(zmk_widget_peripheral_battery_status_obj(&peripheral_battery_status_widget), LV_ALIGN_TOP_RIGHT, -20, 0);
 
     zmk_widget_modifiers_init(&modifiers_widget, screen);
-    lv_obj_align(zmk_widget_modifiers_obj(&modifiers_widget), LV_ALIGN_TOP_LEFT, 24, 10);
+    lv_obj_align(zmk_widget_modifiers_obj(&modifiers_widget), LV_ALIGN_TOP_LEFT, 20, 10);
     
     #if IS_ENABLED(CONFIG_ZMK_HID_INDICATORS)
     zmk_widget_hid_indicators_init(&hid_indicators_widget, screen);
