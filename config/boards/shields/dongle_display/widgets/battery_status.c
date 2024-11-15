@@ -35,7 +35,7 @@ static void set_battery_symbol(lv_obj_t *widget, struct peripheral_battery_state
     // if (state.usb_present) {
     //     lv_label_set_text_fmt(label, "+%3u%%", state.level);
     // } else {
-    lv_label_set_text_fmt(label, "%4u", state.level);
+    lv_label_set_text_fmt(label, "%2u", state.level/10);
     // }
     
     if (state.level > 0) {
@@ -72,7 +72,7 @@ int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_batte
 
     for (int i = 0; i < ZMK_SPLIT_BLE_PERIPHERAL_COUNT; i++) {
         lv_obj_t *battery_label = lv_label_create(widget->obj);
-        lv_obj_align(battery_label, LV_ALIGN_TOP_RIGHT, 0, i * 10);
+        lv_obj_align(battery_label, LV_ALIGN_TOP_RIGHT, 0, i * 5);
         lv_obj_add_flag(battery_label, LV_OBJ_FLAG_HIDDEN);
     }
 
