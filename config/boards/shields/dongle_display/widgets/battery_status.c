@@ -31,13 +31,13 @@ static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][30 * 3];
 
 static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     // inverted colors
-    lv_canvas_fill_bg(canvas, lv_color_black(), LV_OPA_COVER);
+    lv_canvas_fill_bg(canvas, lv_color_white(), LV_OPA_COVER);
     
     lv_draw_rect_dsc_t rect_fill_dsc;
     lv_draw_rect_dsc_init(&rect_fill_dsc);
-    rect_fill_dsc.bg_color = lv_color_white();
-    uint8_t level_bar = 30 * (level / 100 - 1);
-    lv_canvas_draw_rect(canvas, level_bar, 0, 30, 2, &rect_fill_dsc); 
+    rect_fill_dsc.bg_color = lv_color_black();
+    uint8_t level_bar = 30 * level / 100;
+    lv_canvas_draw_rect(canvas, 0, 1, level_bar, 3, &rect_fill_dsc); 
 }
 
 
