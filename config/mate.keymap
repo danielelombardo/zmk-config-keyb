@@ -106,7 +106,7 @@
         fun {
             label = "func";
             bindings = <
-                ____ &tog 2  &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  &rst_all    ____ xxxx &kp C_BRI_DN &kp C_BRI_UP xxxx ____
+                ____ &tog 2  &kp C_BRI_DN  &kp C_BRI_UP xxxx &rst_all   ____ &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP xxxx  ____
                 ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  ____
                 ____ &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT  xxxx              xxxx    xxxx    xxxx   &kp F11  &kp F12  ____
                 ____ ____  ____  ____  ____                                                     &tog 2  ____  ____  ____  ____
