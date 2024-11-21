@@ -27,11 +27,11 @@ struct peripheral_battery_state {
     uint8_t level;
 };
     
-static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][15 * 3];
+static lv_color_t battery_image_buffer[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][30 * 3];
 
 static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     // inverted colors
-    // lv_canvas_fill_bg(canvas, lv_color_black(), LV_OPA_COVER);
+    lv_canvas_fill_bg(canvas, lv_color_black(), LV_OPA_COVER);
     
     lv_draw_rect_dsc_t rect_fill_dsc;
     lv_draw_rect_dsc_init(&rect_fill_dsc);
@@ -78,7 +78,7 @@ ZMK_SUBSCRIPTION(widget_battery_status, zmk_peripheral_battery_state_changed);
 int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_battery_status *widget, lv_obj_t *parent) {
     widget->obj = lv_obj_create(parent);
 
-    lv_obj_set_size(widget->obj, LV_SIZE_CONTENT + 5, LV_SIZE_CONTENT);
+    lv_obj_set_size(widget->obj, LV_SIZE_CONTENT + 7, LV_SIZE_CONTENT);
 
     for (int i = 0; i < ZMK_SPLIT_BLE_PERIPHERAL_COUNT; i++) {
         lv_obj_t *battery_label = lv_label_create(widget->obj);
