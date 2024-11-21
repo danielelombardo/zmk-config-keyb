@@ -35,7 +35,7 @@ static void draw_battery(lv_obj_t *canvas, uint8_t level) {
     lv_draw_rect_dsc_init(&rect_fill_dsc);
     rect_fill_dsc.bg_color = lv_color_black();
     // uint8_t level_bar = 14 * level / 100;
-    lv_canvas_draw_rect(canvas, 0, 0, 2, 14, &rect_fill_dsc); 
+    lv_canvas_draw_rect(canvas, 0, 0, 7, 2, &rect_fill_dsc); 
 }
 
 
