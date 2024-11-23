@@ -11,6 +11,7 @@
 #define NV  3
 #define NVM  4
 #define NVL  5
+#define MO  6
 
 #define xxxx &none
 #define ____ &trans
@@ -59,8 +60,6 @@
 
 / { 
     macros {
-        rls_mods: rls_mods { compatible = "zmk,behavior-macro"; label = "ZM_rls_mods"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
-            bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp RSHFT &kp RCTRL &kp RALT &kp RGUI>; };
         rst_all:  rst_all  { compatible = "zmk,behavior-macro"; label = "ZM_rst_all"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp RSHFT &kp RCTRL &kp RALT &kp RGUI>, <&macro_tap &to 0>; };
         dot_spc:  dot_spc  { compatible = "zmk,behavior-macro"; label = "ZM_dot_spc"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
@@ -86,40 +85,40 @@
         abc {
             label = "abc";
             bindings = <
-                &kp ESC    ASH(Q)  ASH(W)  ASH(D)  ASH(F)  ASH(G)          &rst_all     ASH(J)  ASH(U)  ASH(P)  ASH(DEL)  &tog 2
-                &kp TAB    ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(B)          &key_repeat  ASH(H)  ASH(E)  ASH(I)  ASH(O)    &tog 1
-                &kp ENTER  ssh(Y)  ssh(X)  ssh(C)  ssh(V)  ssh(Z)          &caps_word   ssh(N)  ssh(M)  ssh(K)  ssh(L)    &dot_spc
-                ks(LSHFT)  ks(LCTRL) ks(LGUI) ks(LALT)  &mk 4 BSPC              &mk 1 SPACE  &kp TAB  &kp ESC  &kp ENTER  &sl 6
+                &kp ESC    ASH(Q)  ASH(W)  ASH(D)  ASH(F)  ASH(G)          &rst_all     ASH(J)  ASH(U)  ASH(P)  ASH(DEL)  &tog FU
+                &kp TAB    ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(B)          &key_repeat  ASH(H)  ASH(E)  ASH(I)  ASH(O)    &tog NVL
+                &kp ENTER  ssh(Y)  ssh(X)  ssh(C)  ssh(V)  ssh(Z)          &caps_word   ssh(N)  ssh(M)  ssh(K)  ssh(L)    &tog NS
+                ks(LSHFT)  ks(LCTRL) ks(LGUI) ks(LALT)  &mk NVM BSPC            &mk NS SPACE  &kp TAB  &kp ESC  &kp ENTER  &sl MO
             >; 
         };
 
         nsy {
             label = "123";
             bindings = <
-                ____ &tog 2     ASH(BSLH)  ASH(GRAVE)  xxxx   &rst_all      ____     xxxx    ASH(LBKT)  ASH(RBKT)  ____     ____
-                ____ ASH(N1)     ASH(N2)    ASH(N3)  ASH(N4)  ASH(N5)     ASH(N6)  ASH(N7)    ASH(N8)    ASH(N9)   ASH(N0)  ____
+                ____ &tog FU    ASH(BSLH)  ASH(GRAVE)  xxxx   &rst_all      ____     xxxx    ASH(LBKT)  ASH(RBKT)  ____     ____
+                ____ ASH(N1)     ASH(N2)    ASH(N3)  ASH(N4)  ASH(N5)     ASH(N6)  ASH(N7)    ASH(N8)    ASH(N9)   ASH(N0)  ____ 
                 ____ ASH(MINUS) ASH(EQUAL)   xxxx   ASH(SLASH) xxxx       &kp CAPS ssh(SQT)  ssh(SEMI)  ssh(COMMA) ssh(DOT) ____
-                ____ ____  ____  ____  ____                                                        &tog 1  ____  ____  ____  ____
+                ____ ____  ____  ____  ____                                                      &tog NS  ____  ____  ____  ____
             >;
         };
 
         fun {
             label = "func";
             bindings = <
-                ____ &tog 2  &kp C_BRI_DN  &kp C_BRI_UP xxxx &rst_all   ____ &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP xxxx  ____
+                ____ &tog FU &kp C_BRI_DN  &kp C_BRI_UP xxxx &rst_all   ____ xxxx &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  ____
                 ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  ____
                 ____ &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT  xxxx              xxxx    xxxx    xxxx   &kp F11  &kp F12  ____
-                ____ ____  ____  ____  ____                                                     &tog 2  ____  ____  ____  ____
+                ____ ____  ____  ____  ____                                                    &tog FU  ____  ____  ____  ____
             >;
         };
 
         nav { 
             label = " # ";
             bindings = <
-                ____  xxxx      xxxx   MOU_U  &kp PSCRN  &rst_all        ____  &kp HOME   &kp UP     &kp END   ____  ____
-                ____  MCK_L     MOU_L  MOU_D  MOU_R  &key_repeat         ____  &kp LEFT   &kp DOWN   &kp RIGHT xxxx  ____
-                ____  &tog 5    MCK_R  SCR_U  SCR_D  &kp K_APP           xxxx  &kp PG_UP  &kp PG_DN  &kp INS   xxxx  ____
-                ____  ks(RCTRL) ks(RGUI) ks(RALT)  ____                           &tkp RSHFT SPACE  ____  ____  ____  ____
+                ____  xxxx      xxxx   MOU_U  &kp PSCRN  &rst_all        ____  &kp HOME   &kp UP     &kp END   ____     ____
+                ____  MCK_L     MOU_L  MOU_D  MOU_R  &key_repeat         ____  &kp LEFT   &kp DOWN   &kp RIGHT &dot_spc ____
+                ____  &tog NVL  MCK_R  SCR_U  SCR_D  &kp K_APP           xxxx  &kp PG_UP  &kp PG_DN  &kp INS   xxxx     ____
+                ____  ks(RCTRL) ks(RGUI) ks(RALT)  ____                          &tkp RSHFT SPACE  ____  ____  ____     ____
             >;
         };
 
