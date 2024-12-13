@@ -5,13 +5,12 @@
 &sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
 &sl { release-after-ms = <3000>; };
 
-#define MOC  0
-#define AZ  1
-#define NS  2
-#define FU  3
-#define NV  4
-#define NVM  5
-#define NVL  6
+#define AZ  0
+#define NS  1
+#define FU  2
+#define NV  3
+#define NVM  4
+#define NVL  5
 
 #define xxxx &none
 #define ____ &trans
@@ -68,7 +67,6 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        base_com { if-layers = <MOC>; then-layer = <AZ>; };
         nav_mom  { if-layers = <NVM>; then-layer = <NV>; };
         nav_lock { if-layers = <NVL>; then-layer = <NV>; };
     };
@@ -83,23 +81,13 @@
   
     keymap {
         compatible = "zmk,keymap";
-        commands {
-            label = "commands";
-            bindings = <
-                ks(LALT)  ____  ____  ____  ____  ____             ____  ____  ____  ____  ____  ks(RALT) 
-                ks(LCTRL) ____  ____  ____  ____  ____             ____  ____  ____  ____  ____  ks(RCTRL) 
-                ks(LSHFT) ____  ____  ____  ____  ____             ____  ____  ____  ____  ____  ks(RSHFT) 
-                ks(LGUI)  &kp ENTER  &kp ESC  &kp TAB  ____   ____  &tog NVL  &tog NS  ASH(DEL)  ks(RGUI) 
-            >; 
-        };
-
         abc {
             label = "abc";
             bindings = <
-                ____  &kp Q  &kp W  &kp D  &kp F  &kp G          &rst_all     &kp J  &kp U  &kp P  &caps_word  ____
-                ____  &kp A  &kp S  &kp R  &kp T  &kp B          &key_repeat  &kp H  &kp E  &kp I  &kp O    ____
-                ____  &kp Y  &kp X  &kp C  &kp V  &kp Z          &dot_spc     &kp N  &kp M  &kp K  &kp L    ____
-                ____  ____  ____  ____  &mk NVM BSPC                  &mk NS SPACE  ____  ____  ____  ____ 
+                ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp J  &kp U  &kp P  &caps_word ks(RALT) 
+                ks(LCTRL) &kp A  &kp S  &kp R  &kp T  &kp B            &key_repeat  &kp H  &kp E  &kp I  &kp O      ks(RCTRL) 
+                ks(LSHFT) &kp Y  &kp X  &kp C  &kp V  &kp Z            &dot_spc     &kp N  &kp M  &kp K  &kp L      ks(RSHFT)
+                ks(LGUI)  &kp ENTER  &kp ESC  &kp TAB  &mk NV BSPC       &mk NS SPACE  &tog NVL  &tog NS  ASH(DEL)  ks(RGUI)
             >; 
         };
 
@@ -107,9 +95,9 @@
             label = "123";
             bindings = <
                 ____ &tog FU    ASH(BSLH)  ASH(GRAVE)  xxxx   &rst_all      ____    &tog FU   ASH(LBKT)  ASH(RBKT)  &kp CAPS ____
-                ____ ASH(N1)     ASH(N2)    ASH(N3)  ASH(N4)    xxxx        ____     ASH(N7)    ASH(N8)    ASH(N9)   ASH(N0)  ____ 
+                ____ ASH(N1)     ASH(N2)    ASH(N3)  ASH(N4)    xxxx        ____     ASH(N7)    ASH(N8)    ASH(N9)   ASH(N0) ____ 
                 ____ ASH(MINUS) ASH(EQUAL)   xxxx   ASH(SLASH) ASH(N5)     ASH(N6)  ssh(SQT)  ssh(SEMI)  ssh(COMMA) ssh(DOT) ____
-                ____ ____  ____  ____  ____                                                      &tog NS  ____  ____  ____  ____
+                ____ ____  ____  ____  ____                                                       &tog NS  ____  ____  ____  ____
             >;
         };
 
