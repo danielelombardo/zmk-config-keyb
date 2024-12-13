@@ -68,6 +68,7 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
+        base_com { if-layers = <MOC>; then-layer = <AZ>; };
         nav_mom  { if-layers = <NVM>; then-layer = <NV>; };
         nav_lock { if-layers = <NVL>; then-layer = <NV>; };
     };
