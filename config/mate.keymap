@@ -5,13 +5,13 @@
 &sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
 &sl { release-after-ms = <3000>; };
 
-#define AZ  0
-#define NS  1
-#define FU  2
-#define NV  3
-#define NVM  4
-#define NVL  5
-#define MO  6
+#define MOC  0
+#define AZ  1
+#define NS  2
+#define FU  3
+#define NV  4
+#define NVM  5
+#define NVL  6
 
 #define xxxx &none
 #define ____ &trans
@@ -68,8 +68,8 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
-        nav_mom  { if-layers = <4>; then-layer = <3>; };
-        nav_lock { if-layers = <5>; then-layer = <3>; };
+        nav_mom  { if-layers = <NVM>; then-layer = <NV>; };
+        nav_lock { if-layers = <NVL>; then-layer = <NV>; };
     };
 
     behaviors {
@@ -82,22 +82,32 @@
   
     keymap {
         compatible = "zmk,keymap";
+        commands {
+            label = "commands";
+            bindings = <
+                ks(LALT)  ____  ____  ____  ____  ____             ____  ____  ____  ____  ____  ks(RALT) 
+                ks(LCTRL) ____  ____  ____  ____  ____             ____  ____  ____  ____  ____  ks(RCTRL) 
+                ks(LSHFT) ____  ____  ____  ____  ____             ____  ____  ____  ____  ____  ks(RSHFT) 
+                ks(LGUI)  &kp ENTER  &kp ESC  &kp TAB  ____   ____  &tog NVL  &tog NS  ASH(DEL)  ks(RGUI) 
+            >; 
+        };
+
         abc {
             label = "abc";
             bindings = <
-                &kp ESC    ASH(Q)  ASH(W)  ASH(D)  ASH(F)  ASH(G)          &rst_all     ASH(J)  ASH(U)  ASH(P)  ASH(DEL)  &tog FU
-                &kp TAB    ASH(A)  ASH(S)  ASH(R)  ASH(T)  ASH(B)          &key_repeat  ASH(H)  ASH(E)  ASH(I)  ASH(O)    &tog NVL
-                &kp ENTER  ssh(Y)  ssh(X)  ssh(C)  ssh(V)  ssh(Z)          &caps_word   ssh(N)  ssh(M)  ssh(K)  ssh(L)    &tog NS
-                ks(LSHFT)  ks(LCTRL) ks(LGUI) ks(LALT)  &mk NVM BSPC            &mk NS SPACE  &kp TAB  &kp ESC  &kp ENTER  &sl MO
+                ____  &kp Q  &kp W  &kp D  &kp F  &kp G          &rst_all     &kp J  &kp U  &kp P  &caps_word  ____
+                ____  &kp A  &kp S  &kp R  &kp T  &kp B          &key_repeat  &kp H  &kp E  &kp I  &kp O    ____
+                ____  &kp Y  &kp X  &kp C  &kp V  &kp Z          &dot_spc     &kp N  &kp M  &kp K  &kp L    ____
+                ____  ____  ____  ____  &mk NVM BSPC                  &mk NS SPACE  ____  ____  ____  ____ 
             >; 
         };
 
         nsy {
             label = "123";
             bindings = <
-                ____ &tog FU    ASH(BSLH)  ASH(GRAVE)  xxxx   &rst_all      ____     xxxx    ASH(LBKT)  ASH(RBKT)  ____     ____
-                ____ ASH(N1)     ASH(N2)    ASH(N3)  ASH(N4)  ASH(N5)     ASH(N6)  ASH(N7)    ASH(N8)    ASH(N9)   ASH(N0)  ____ 
-                ____ ASH(MINUS) ASH(EQUAL)   xxxx   ASH(SLASH) xxxx       &kp CAPS ssh(SQT)  ssh(SEMI)  ssh(COMMA) ssh(DOT) ____
+                ____ &tog FU    ASH(BSLH)  ASH(GRAVE)  xxxx   &rst_all      ____    &tog FU   ASH(LBKT)  ASH(RBKT)  &kp CAPS ____
+                ____ ASH(N1)     ASH(N2)    ASH(N3)  ASH(N4)    xxxx        ____     ASH(N7)    ASH(N8)    ASH(N9)   ASH(N0)  ____ 
+                ____ ASH(MINUS) ASH(EQUAL)   xxxx   ASH(SLASH) ASH(N5)     ASH(N6)  ssh(SQT)  ssh(SEMI)  ssh(COMMA) ssh(DOT) ____
                 ____ ____  ____  ____  ____                                                      &tog NS  ____  ____  ____  ____
             >;
         };
@@ -105,20 +115,20 @@
         fun {
             label = "func";
             bindings = <
-                ____ &tog FU &kp C_BRI_DN  &kp C_BRI_UP xxxx &rst_all   ____ xxxx &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP  ____
-                ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5                      &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  ____
-                ____ &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT  xxxx              xxxx    xxxx    xxxx   &kp F11  &kp F12  ____
-                ____ ____  ____  ____  ____                                                    &tog FU  ____  ____  ____  ____
+                ____ &tog FU &kp C_BRI_DN  &kp C_BRI_UP xxxx &rst_all     ____ &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP ____  ____
+                ____ &kp F1  &kp F2  &kp F3  &kp F4     xxxx              ____      &kp F7  &kp F8  &kp F9  &kp F10  ____
+                ____ &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT  &kp F5       &kp F6  xxxx    xxxx   &kp F11  &kp F12  ____
+                ____ ____  ____  ____  ____                                               &tog FU  ____  ____  ____  ____
             >;
         };
 
         nav { 
             label = " # ";
             bindings = <
-                ____  xxxx      xxxx   MOU_U  &kp PSCRN  &rst_all        ____  &kp HOME   &kp UP     &kp END   ____     ____
-                ____  MCK_L     MOU_L  MOU_D  MOU_R  &key_repeat         ____  &kp LEFT   &kp DOWN   &kp RIGHT &dot_spc ____
-                ____  &tog NVL  MCK_R  SCR_U  SCR_D  &kp K_APP           xxxx  &kp PG_UP  &kp PG_DN  &kp INS   xxxx     ____
-                ____  ks(RCTRL) ks(RGUI) ks(RALT)  ____                          &tkp RSHFT SPACE  ____  ____  ____     ____
+                ____  xxxx      xxxx   MOU_U  &kp PSCRN  &rst_all        ____  xxxx       &kp UP     xxxx       &kp INS    ____
+                ____  MCK_L     MOU_L  MOU_D  MOU_R  &key_repeat         ____  &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_UP  ____
+                ____  &kt LSHFT MCK_R  SCR_U  SCR_D  &kp K_APP           ____  &kp HOME   xxxx       &kp END    &kp PG_DN  ____
+                ____  ____  ____  ____  ____                             &tkp RSHFT SPACE  ____  ____  ____  ____
             >;
         };
 
@@ -139,16 +149,6 @@
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
                 ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
                 ____  ____  ____  ____  ____                 ____  ____  ____  ____  ____ 
-            >;
-        };
-
-        mod { 
-            label = "mods";
-            bindings = <
-                ____  ____  ____  ____  ____  ____                   ____  ____  ____  ____  ____  ____ 
-                ____  ____  ____  ____  ____  ____                   ____  ____  ____  ____  ____  ____ 
-                ____  ____  ____  ____  ____  ____                   ____  ____  ____  ____  ____  ____ 
-                &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT &rst_all    &rst_all  &kt RALT  &kt RGUI  &kt RCTRL  &kt RSHFT  
             >;
         };
 
