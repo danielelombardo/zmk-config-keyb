@@ -9,8 +9,6 @@
 #define NS  1
 #define FU  2
 #define NV  3
-#define NVM  4
-#define NVL  5
 
 #define xxxx &none
 #define ____ &trans
@@ -65,12 +63,6 @@
             bindings = <&macro_tap &kp DOT &kp SPACE &sk LSHFT>; };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-        nav_mom  { if-layers = <NVM>; then-layer = <NV>; };
-        nav_lock { if-layers = <NVL>; then-layer = <NV>; };
-    };
-
     behaviors {
         mk:  moml_kp      { compatible = "zmk,behavior-hold-tap"; label = "MOML_KP";      #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
         tkp: two_kp       { compatible = "zmk,behavior-hold-tap"; label = "TWO_KP";       #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <175>; bindings = <&kp>, <&kp>; }; 
@@ -87,17 +79,17 @@
                 ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp J  &kp U  &kp P  &caps_word ks(RALT) 
                 ks(LCTRL) &kp A  &kp S  &kp R  &kp T  &kp B            &key_repeat  &kp H  &kp E  &kp I  &kp O      ks(RCTRL) 
                 ks(LSHFT) &kp Y  &kp X  &kp C  &kp V  &kp Z            &dot_spc     &kp N  &kp M  &kp K  &kp L      ks(RSHFT)
-                ks(LGUI)  &kp ENTER  &kp ESC  &kp TAB  &mk NV BSPC       &mk NS SPACE  &tog NVL  &tog NS  ASH(DEL)  ks(RGUI)
+                ks(LGUI)  &kp ENTER  &kp ESC  &kp TAB  &mk NV BSPC       &mk NS SPACE  &tog NV  &tog NS  &kp DEL    ks(RGUI)
             >; 
         };
 
         nsy {
             label = "123";
             bindings = <
-                ____ &tog FU    ASH(BSLH)  ASH(GRAVE)  xxxx   &rst_all      ____    &tog FU   ASH(LBKT)  ASH(RBKT)  &kp CAPS ____
-                ____ ASH(N1)     ASH(N2)    ASH(N3)  ASH(N4)    xxxx        ____     ASH(N7)    ASH(N8)    ASH(N9)   ASH(N0) ____ 
-                ____ ASH(MINUS) ASH(EQUAL)   xxxx   ASH(SLASH) ASH(N5)     ASH(N6)  ssh(SQT)  ssh(SEMI)  ssh(COMMA) ssh(DOT) ____
-                ____ ____  ____  ____  ____                                                       &tog NS  ____  ____  ____  ____
+                ____ &tog FU    ASH(BSLH)  ASH(GRAVE)  xxxx   &rst_all    ____    &tog FU   ASH(LBKT)  ASH(RBKT)  &kp CAPS ____
+                ____ ASH(N1)    ASH(N2)    ASH(N3)   ASH(N4)  xxxx        ____    ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
+                ____ ASH(MINUS) ASH(EQUAL) xxxx   ASH(SLASH)  ASH(N5)     ASH(N6) ssh(SQT)  ssh(SEMI)  ssh(COMMA) ssh(DOT) ____
+                ____ ____  ____  ____  ____                                                     &tog NS  ____  ____  ____  ____
             >;
         };
 
@@ -118,26 +110,6 @@
                 ____  MCK_L     MOU_L  MOU_D  MOU_R  &key_repeat         ____  &kp LEFT   &kp DOWN   &kp RIGHT  &kp PG_UP  ____
                 ____  &kt LSHFT MCK_R  SCR_U  SCR_D  &kp K_APP           ____  &kp HOME   xxxx       &kp END    &kp PG_DN  ____
                 ____  ____  ____  ____  ____                             &tkp RSHFT SPACE  ____  ____  ____  ____
-            >;
-        };
-
-        navm { 
-            label = " # ";
-            bindings = <
-                ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
-                ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
-                ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
-                ____  ____  ____  ____  ____                 ____  ____  ____  ____  ____ 
-            >;
-        };
-
-        navl { 
-            label = "/#/";
-            bindings = <
-                ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
-                ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
-                ____  ____  ____  ____  ____  ____     ____  ____  ____  ____  ____  ____ 
-                ____  ____  ____  ____  ____                 ____  ____  ____  ____  ____ 
             >;
         };
 
