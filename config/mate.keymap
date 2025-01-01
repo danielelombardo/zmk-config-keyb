@@ -76,9 +76,9 @@
         abc {
             label = "abc";
             bindings = <
-                ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp J  &kp U  &kp P  &caps_word ks(RALT) 
-                ks(LCTRL) &kp A  &kp S  &kp R  &kp T  &kp B            &key_repeat  &kp H  &kp E  &kp I  &kp O      ks(RCTRL) 
-                ks(LSHFT) &kp Y  &kp X  &kp C  &kp V  &kp Z            &dot_spc     &kp N  &kp M  &kp K  &kp L      ks(RSHFT)
+                ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp L  &kp U  &kp O  &caps_word ks(RALT) 
+                ks(LCTRL) &kp A  &kp S  &kp R  &kp T  &kp B            &key_repeat  &kp H  &kp E  &kp I  &kp P      ks(RCTRL) 
+                ks(LSHFT) &kp Y  &kp X  &kp C  &kp V  &kp Z            &dot_spc     &kp N  &kp M  &kp K  &kp J      ks(RSHFT)
                 ks(LGUI)  &kp DEL  &kp ESC  &kp TAB   &mk NV BSPC      &mk NS SPACE  &kp ENTER  &tog NS  &tog NV  ks(RGUI)
             >; 
         };
@@ -97,7 +97,7 @@
             label = "func";
             bindings = <
                 ____ &tog FU &kp C_BRI_DN  &kp C_BRI_UP xxxx &rst_all     ____ &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP ____  ____
-                ____ &kp F1  &kp F2        &kp F3    &kp F4  &key_repeat    ____    &kp F7  &kp F8  &kp F9  &kp F10  ____
+                ____ &kp F1  &kp F2        &kp F3    &kp F4  &key_repeat    ____    &kp F7  &kp F8  &kp F9  &kp F10  _  ___
                 ____ &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT  &kp F5       &kp F6  xxxx    xxxx   &kp F11  &kp F12  ____
                 ____ ____  ____  ____  ____                                              &tog FU  ____  ____  ____  ____
             >;
