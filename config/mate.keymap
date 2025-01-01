@@ -97,7 +97,7 @@
             label = "func";
             bindings = <
                 ____ &tog FU &kp C_BRI_DN  &kp C_BRI_UP xxxx &rst_all     ____ &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP ____  ____
-                ____ &kp F1  &kp F2        &kp F3    &kp F4  &key_repeat    ____    &kp F7  &kp F8  &kp F9  &kp F10  _  ___
+                ____ &kp F1  &kp F2        &kp F3    &kp F4  &key_repeat    ____    &kp F7  &kp F8  &kp F9  &kp F10  ____
                 ____ &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT  &kp F5       &kp F6  xxxx    xxxx   &kp F11  &kp F12  ____
                 ____ ____  ____  ____  ____                                              &tog FU  ____  ____  ____  ____
             >;
