@@ -76,20 +76,20 @@
         abc {
             label = "abc";
             bindings = <
-                ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp L  &kp U  &kp O  &caps_word ks(RALT) 
-                ks(LCTRL) &kp A  &kp S  &kp R  &kp T  &kp B            &key_repeat  &kp H  &kp E  &kp I  &kp P      ks(RCTRL) 
-                ks(LSHFT) &kp Y  &kp X  &kp C  &kp V  &kp Z            &dot_spc     &kp N  &kp M  &kp K  &kp J      ks(RSHFT)
-                ks(LGUI)  &kp DEL  &kp ESC  &kp TAB   &mk NV BSPC      &mk NS SPACE  &kp ENTER  &tog NS  &tog NV  ks(RGUI)
+                ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp L  &kp U  &kp O  &tog FU   ks(RALT) 
+                ks(LSHFT) &kp A  &kp S  &kp R  &kp T  &kp B            &key_repeat  &kp N  &kp E  &kp I  &kp P     ks(RSHFT) 
+                ks(LGUI)  &kp Y  &kp X  &kp C  &kp V  &kp Z            &sk LSHFT    &kp H  &kp M  &kp K  &kp J     ks(RGUI)
+                ks(LCTRL) &kp DEL  &kp ESC  &kp TAB   &mk NV BSPC      &mk NS SPACE &kp ENTER  &tog NS  &tog NV    ks(RCTRL)
             >; 
         };
 
         nsy {
             label = "123";
             bindings = <
-                ____ &tog FU    ASH(BSLH)  ASH(GRAVE)  xxxx   &rst_all     ____    &tog FU   ASH(LBKT)  ASH(RBKT)  &kp CAPS ____
-                ____ ASH(N1)    ASH(N2)    ASH(N3)   ASH(N4)  &key_repeat  ____    ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
-                ____ ASH(MINUS) ASH(EQUAL) xxxx   ASH(SLASH)  ASH(N5)      ASH(N6) ssh(SQT)  ssh(SEMI)  ssh(COMMA) ssh(DOT) ____
-                ____ ____  ____  ____  ____                                                     &tog NS  ____  ____  ____  ____
+                ____ ASH(N1)    ASH(N2)    ASH(N3)    ASH(N4)   &rst_all      ____      ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
+                ____ ASH(MINUS) ASH(EQUAL) ASH(BSLH) ASH(SLASH) ASH(N5)       ASH(N6)   ASH(SQT)  ASH(SEMI)  ASH(COMMA) ASH(DOT) ____
+                ____ ASH(GRAVE) ssh(LBKT) ssh(RBKT)   &dot_spc  &key_repeat   &kp CAPS  &caps_word  xxxx      xxxx      xxxx     ____
+                ____ ____  ____  ____  ____                                                           &tog NS  ____  ____  ____  ____
             >;
         };
 
@@ -106,9 +106,9 @@
         nav { 
             label = " # ";
             bindings = <
-                ____  &kp ESC  &kp ENTER  MOU_U  xxxx   &rst_all         ____  &kp PSCRN   &kp UP     xxxx     &kp INS    ____
-                ____  MCK_L      MOU_L    MOU_D  MOU_R  &key_repeat      ____  &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_UP  ____
-                ____  &kt LSHFT  MCK_R    SCR_U  SCR_D  &kp K_APP        ____  &kp HOME     xxxx     &kp END   &kp PG_DN  ____
+                ____  &kp ESC  &kp ENTER  MOU_U  xxxx   &rst_all         ____  &kp HOME   &kp UP   &kp END    &kp INS    ____
+                ____  MCK_L      MOU_L    MOU_D  MOU_R  &key_repeat      ____  &kp LEFT   &kp DOWN &kp RIGHT  &kp PG_UP  ____
+                ____  &kt LSHFT  MCK_R    SCR_U  SCR_D  &kp K_APP        ____       xxxx    xxxx   &kp PSCRN  &kp PG_DN  ____
                 ____  ____  ____  ____  ____                             &tkp RSHFT SPACE  ____  ____  ____  ____
             >;
         };
