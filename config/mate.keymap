@@ -1,14 +1,15 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
 
 &caps_word { continue-list = <MINUS UNDERSCORE BSPC DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
 &sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
 &sl { release-after-ms = <3000>; };
 
 #define AZ  0
-#define NS  1
-#define FU  2
-#define NV  3
+#define MU  1
+#define NS  2
+#define FU  3
 
 #define xxxx &none
 #define ____ &trans
@@ -19,7 +20,7 @@
 
 #define VX &tkp LC(X) LC(V)
 #define CZ &tkp LC(Z) LC(C)
-#define DELWRD LC(BSPC)
+#define DELWRD &kp LA(BSPC)
 #define WRD_N RC(RIGHT)
 #define WRD_P LC(LEFT)
 #define TAB_N RA(RIGHT)
@@ -27,7 +28,7 @@
 
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 1400  // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 30    // 10
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 15    // 10
 
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors/mouse_keys.dtsi>
@@ -69,6 +70,8 @@
         skp: slow_two_kp  { compatible = "zmk,behavior-hold-tap"; label = "SLOW_TWO_KP";  #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&kp>; }; 
         ksk: kp_sk        { compatible = "zmk,behavior-hold-tap"; label = "KP_SK";        #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; }; 
         mmd: moml_macro   { compatible = "zmk,behavior-hold-tap"; label = "MOML_MACRO";   #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&dot_spc>; }; 
+        blt: bluetooth    { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&bt BT_NXT>, <&bt BT_CLR>; mods = <(MOD_LALT|MOD_RALT)>;
+        };
     };
   
     keymap {
@@ -76,40 +79,40 @@
         abc {
             label = "abc";
             bindings = <
-                ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp L  &kp U  &kp O  &tog FU   ks(RALT) 
+                ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp L  &kp U  &kp O  &tog MU   ks(RALT) 
                 ks(LSHFT) &kp A  &kp S  &kp R  &kp T  &kp B            &key_repeat  &kp N  &kp E  &kp I  &kp P     ks(RSHFT) 
                 ks(LGUI)  &kp Y  &kp X  &kp C  &kp V  &kp Z            &sk LSHFT    &kp H  &kp M  &kp K  &kp J     ks(RGUI)
-                ks(LCTRL) &kp DEL  &kp ESC  &kp TAB   &mk NV BSPC      &mk NS SPACE &kp ENTER  &tog NS  &tog NV    ks(RCTRL)
+                ks(LCTRL) &kp ESC  &tog NS  &kp TAB  &mk NS BSPC      &mk FU SPACE  &kp ENTER   &tog FU   &kp DEL  ks(RCTRL)
             >; 
+        };
+
+        mou { 
+            label = " ~ ";
+            bindings = <
+                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  SCR_U  MOU_U  SCR_D  MCK_R  ____
+                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  MOU_L  MOU_D  MOU_R  MCK_L  ____
+                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  xxxx   xxxx   xxxx &kp K_APP ____
+                ____  ____  ____  ____  ____           &tkp RSHFT SPACE  ____  ____  ____  ____
+            >;
         };
 
         nsy {
             label = "123";
             bindings = <
-                ____ ASH(N1)    ASH(N2)    ASH(N3)    ASH(N4)   &rst_all      ____      ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
-                ____ ASH(MINUS) ASH(EQUAL) ASH(BSLH) ASH(SLASH) ASH(N5)       ASH(N6)   ASH(SQT)  ASH(SEMI)  ASH(COMMA) ASH(DOT) ____
-                ____ ASH(GRAVE) ssh(LBKT) ssh(RBKT)   &dot_spc  &key_repeat   &kp CAPS  &caps_word  xxxx      xxxx      xxxx     ____
-                ____ ____  ____  ____  ____                                                           &tog NS  ____  ____  ____  ____
+                &kp ESC  ASH(N1)    ASH(N2)    ASH(N3)    ASH(N4)   &rst_all      ____      ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
+                ____     ASH(MINUS) ASH(EQUAL) ASH(BSLH) ASH(SLASH) ASH(N5)       ASH(N6)   ASH(SQT)  ASH(SEMI)  ASH(COMMA) ASH(DOT) ____
+                ____     ASH(GRAVE) &kp PSCRN  &blt       DELWRD    ks(GLOBE)     &kp CAPS  &caps_word  ssh(LBKT) ssh(RBKT) &dot_spc ____
+                ____     ____  ____  ____  ____                                                           &tog NS  ____  ____  ____  ____
             >;
         };
 
         fun {
-            label = "func";
+            label = " f# ";
             bindings = <
-                ____ &tog FU &kp C_BRI_DN  &kp C_BRI_UP xxxx &rst_all     ____ &kp C_MUTE  &kp C_VOL_DN  &kp C_VOL_UP ____  ____
-                ____ &kp F1  &kp F2        &kp F3    &kp F4  &key_repeat    ____    &kp F7  &kp F8  &kp F9  &kp F10  ____
-                ____ &kt LSHFT  &kt LCTRL  &kt LGUI  &kt LALT  &kp F5       &kp F6  xxxx    xxxx   &kp F11  &kp F12  ____
-                ____ ____  ____  ____  ____                                              &tog FU  ____  ____  ____  ____
-            >;
-        };
-
-        nav { 
-            label = " # ";
-            bindings = <
-                ____  &kp ESC  &kp ENTER  MOU_U  xxxx   &rst_all         ____  &kp HOME   &kp UP   &kp END    &kp INS    ____
-                ____  MCK_L      MOU_L    MOU_D  MOU_R  &key_repeat      ____  &kp LEFT   &kp DOWN &kp RIGHT  &kp PG_UP  ____
-                ____  &kt LSHFT  MCK_R    SCR_U  SCR_D  &kp K_APP        ____       xxxx    xxxx   &kp PSCRN  &kp PG_DN  ____
-                ____  ____  ____  ____  ____                             &tkp RSHFT SPACE  ____  ____  ____  ____
+                ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5        ____ &kp HOME   &kp UP    &kp END    &kp PG_UP  ____
+                ____ &kp F6  &kp F7  &kp F8  &kp F9  &kp F10       ____ &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN  ____
+                ____ &kp F11 &kp F12 &kp F13 &kp F14 &kp F15       ____ &kp C_MUTE  &kp C_VOL_DN  &kp C_PP &kp C_VOL_UP  ____
+                ____ ____  ____  ____  &tkp LSHFT BSPC                                     ____  ____  ____  ____  ____
             >;
         };
 
