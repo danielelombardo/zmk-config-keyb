@@ -21,10 +21,6 @@
 #define VX &tkp LC(X) LC(V)
 #define CZ &tkp LC(Z) LC(C)
 #define DELWRD &kp LA(BSPC)
-#define WRD_N RC(RIGHT)
-#define WRD_P LC(LEFT)
-#define TAB_N RA(RIGHT)
-#define TAB_P LA(LEFT)
 
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 1400  // 600
@@ -70,8 +66,7 @@
         skp: slow_two_kp  { compatible = "zmk,behavior-hold-tap"; label = "SLOW_TWO_KP";  #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&kp>; }; 
         ksk: kp_sk        { compatible = "zmk,behavior-hold-tap"; label = "KP_SK";        #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; }; 
         mmd: moml_macro   { compatible = "zmk,behavior-hold-tap"; label = "MOML_MACRO";   #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&dot_spc>; }; 
-        blt: bluetooth    { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&bt BT_NXT>, <&bt BT_CLR>; mods = <(MOD_LALT|MOD_RALT)>;
-        };
+        blt: bluetoot     { compatible = "zmk,behavior-mod-morph"; label = "BLUETOOT";    #binding-cells = <0>; bindings = <&bt BT_NXT>, <&bt BT_CLR>; mods = <(MOD_LALT|MOD_RALT)>; };
     };
   
     keymap {
