@@ -1,5 +1,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
+#include "mate-layouts.dtsi"
+
 / {
     chosen {
         zmk,kscan = &mock_kscan;
