@@ -1,10 +1,12 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
+#include "mate-layouts.dtsi"
+
 / {
 
 	chosen {
 		zmk,kscan = &kscan0;
-		zmk,matrix_transform = &default_transform;
+		zmk,physical-layout = &physical_layout0;
 	};
 	
 	default_transform: keymap_transform_0 {
@@ -20,9 +22,9 @@
 
 	kscan0: kscan {
 		compatible = "zmk,kscan-gpio-matrix";
+        diode-direction = "col2row";
         wakeup-source;
 
-        diode-direction = "col2row";
         row-gpios
             = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             , <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
