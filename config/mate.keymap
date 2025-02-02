@@ -21,10 +21,11 @@
 #define VX &tkp LC(X) LC(V)
 #define CZ &tkp LC(Z) LC(C)
 #define DELWRD &kp LA(BSPC)
+#define SWITCHWND &kp LG(GRAVE)
 
 
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1400  // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 15    // 10
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 2000  // 600
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 50    // 10
 
 #include <dt-bindings/zmk/pointing.h>
 
@@ -93,7 +94,7 @@
             bindings = <
                 &kp ESC  ASH(N1)    ASH(N2)    ASH(N3)    ASH(N4)   &rst_all      ____      ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
                 ____     ASH(MINUS) ASH(EQUAL) ASH(BSLH) ASH(SLASH) ASH(N5)       ASH(N6)   ASH(SQT)  ASH(SEMI)  ASH(COMMA) ASH(DOT) ____
-                ____     ASH(GRAVE) &kp PSCRN  &blt       DELWRD    ks(GLOBE)     &kp CAPS  &caps_word  ssh(LBKT) ssh(RBKT) &dot_spc ____
+                ____     ASH(GRAVE) &kp PSCRN  SWITCHWND  DELWRD    &blt          &kp CAPS  &caps_word  ssh(LBKT) ssh(RBKT) &dot_spc ____
                 ____     ____  ____  ____  ____                                                           &tog NS  ____  ____  ____  ____
             >;
         };
@@ -103,7 +104,7 @@
             bindings = <
                 ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5        ____ &kp HOME   &kp UP    &kp END    &kp PG_UP  ____
                 ____ &kp F6  &kp F7  &kp F8  &kp F9  &kp F10       ____ &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN  ____
-                ____ &kp F11 &kp F12 &kp F13 &kp F14 &kp F15       ____ &kp C_MUTE  &kp C_VOL_DN  &kp C_PP &kp C_VOL_UP  ____
+                ____ &kp F11 &kp F12 &kp F13 &kp F14 &kp F15       ____ &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &kp C_PP ____
                 ____ ____  ____  ____  &tkp LSHFT BSPC                                     ____  ____  ____  ____  ____
             >;
         };
