@@ -6,10 +6,10 @@
 &sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
 &sl { release-after-ms = <3000>; };
 
-#define AZ  0
-#define MU  1
-#define NS  2
-#define FU  3
+#define ABC 0
+#define MOU 1
+#define NSY 2
+#define FUN 3
 
 #define xxxx &none
 #define ____ &trans
@@ -22,6 +22,7 @@
 #define CZ &tkp LC(Z) LC(C)
 #define DELWRD &kp LA(BSPC)
 #define SWITCHWND &kp LG(GRAVE)
+#define LEADR &sk LG(LS(LA(LCTRL)))
 
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 2000  // 600
@@ -56,6 +57,8 @@
             bindings = <&macro_release &kp LSHFT &kp LCTRL &kp LALT &kp LGUI &kp RSHFT &kp RCTRL &kp RALT &kp RGUI>, <&macro_tap &to 0>; };
         dot_spc:  dot_spc  { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp DOT &kp SPACE &sk LSHFT>; };
+        tog_lay:  tog_lay  { compatible = "zmk,behavior-macro"; #binding-cells = <1>; 
+            bindings = <&macro_pause_for_release>, <&macro_param_1to1>, &macro_tap &tog MACRO_PLACEHOLDER>; };
     };
 
     behaviors {
@@ -72,10 +75,10 @@
         abc {
             label = "abc";
             bindings = <
-                ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp L  &kp U  &kp O  &tog MU   ks(RALT) 
+                ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp L  &kp U  &kp O  &tog MOU  ks(RALT) 
                 ks(LSHFT) &kp A  &kp S  &kp R  &kp T  &kp B            &key_repeat  &kp N  &kp E  &kp I  &kp P     ks(RSHFT) 
                 ks(LGUI)  &kp Y  &kp X  &kp C  &kp V  &kp Z            &sk LSHFT    &kp H  &kp M  &kp K  &kp J     ks(RGUI)
-                ks(LCTRL) &kp ESC  &tog NS  &kp TAB  &mk NS BSPC      &mk FU SPACE  &kp ENTER   &tog FU   &kp DEL  ks(RCTRL)
+                ks(LCTRL) &kp ESC &tog NSY &kp TAB &mk NSY BSPC       &mk FUN SPACE  &kp ENTER  &tog FUN  &kp DEL  ks(RCTRL)
             >; 
         };
 
@@ -92,10 +95,10 @@
         nsy {
             label = "123";
             bindings = <
-                &kp ESC  ASH(N1)    ASH(N2)    ASH(N3)    ASH(N4)   &rst_all      ____      ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
+                &kp ESC  ssh(N1)    ssh(N2)    ASH(N3)     ASH(N4)  &rst_all      ____      ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
                 ____     ASH(MINUS) ASH(EQUAL) ASH(BSLH) ASH(SLASH) ASH(N5)       ASH(N6)   ASH(SQT)  ASH(SEMI)  ASH(COMMA) ASH(DOT) ____
-                ____     ASH(GRAVE) &kp PSCRN  SWITCHWND  DELWRD    &blt          &kp CAPS  &caps_word  ssh(LBKT) ssh(RBKT) &dot_spc ____
-                ____     ____  ____  ____  ____                                                           &tog NS  ____  ____  ____  ____
+                ____     SWITCHWND  LEADR      ASH(GRAVE)  DELWRD   &blt          &kp CAPS  &caps_word  ssh(LBKT) ssh(RBKT) &dot_spc ____
+                ____     ____  ____  ____  ____                                                      &tog_lay NSY  ____  ____  ____  ____
             >;
         };
 
