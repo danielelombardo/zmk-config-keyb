@@ -58,7 +58,7 @@
         dot_spc:  dot_spc  { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
             bindings = <&macro_tap &kp DOT &kp SPACE &sk LSHFT>; };
         tog_lay:  tog_lay  { compatible = "zmk,behavior-macro"; #binding-cells = <1>; 
-            bindings = <&macro_pause_for_release>, <&macro_param_1to1>, &macro_tap &tog MACRO_PLACEHOLDER>; };
+            bindings = <&macro_pause_for_release>, <&macro_param_1to1>, <&macro_tap &tog MACRO_PLACEHOLDER>; };
     };
 
     behaviors {
