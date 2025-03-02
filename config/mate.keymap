@@ -75,37 +75,37 @@
         abc {
             label = "abc";
             bindings = <
-                ks(LALT)  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp L  &kp U  &kp O  &tog MOU  ks(RALT) 
-                ks(LSHFT) &kp A  &kp S  &kp R  &kp T  &kp B            &key_repeat  &kp N  &kp E  &kp I  &kp P     ks(RSHFT) 
-                ks(LGUI)  &kp Y  &kp X  &kp C  &kp V  &kp Z            &sk LSHFT    &kp H  &kp M  &kp K  &kp J     ks(RGUI)
-                ks(LCTRL) &kp ESC &tog NSY &kp TAB &mk NSY BSPC       &mk FUN SPACE  &kp ENTER  &tog FUN  &kp DEL  ks(RCTRL)
+                &kp ESC  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp L  &kp U  &kp O  &kp DEL    &tog MOU 
+                ks(LSHFT) &kp A  &kp S  &kp R  &kp T  &kp B           &key_repeat  &kp N  &kp E  &kp I  &kp P      ks(RSHFT) 
+                &kp CAPS  &kp Y  &kp X  &kp C  &kp V  &kp Z           &sk LSHFT    &kp H  &kp M  &kp K  &kp J      &caps_word 
+                ks(LCTRL) ks(LGUI) ks(LALT) &kp TAB &mk NSY BSPC      &mk FUN SPACE  &kp ENTER  ks(RALT)  ks(RGUI) ks(RCTRL)
             >; 
         };
 
         mou { 
             label = " ~ ";
             bindings = <
-                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  SCR_U  MOU_U  SCR_D  MCK_R  ____
-                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  MOU_L  MOU_D  MOU_R  MCK_L  ____
-                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  xxxx   xxxx   xxxx &kp K_APP ____
-                ____  ____  ____  ____  ____           &tkp RSHFT SPACE  ____  ____  ____  ____
+                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  SCR_U  MOU_U  SCR_D   xxxx  ____
+                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  MOU_L  MOU_D  MOU_R   MCK_L  ____
+                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  xxxx   xxxx &kp K_APP MCK_R____
+                ____  ____  ____  ____  ____            &tkp RSHFT SPACE  ____  ____  ____  ____
             >;
         };
 
         nsy {
             label = "123";
             bindings = <
-                &kp ESC  ssh(N1)    ssh(N2)    ASH(N3)     ASH(N4)  &rst_all      ____      ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
-                ____     ASH(MINUS) ASH(EQUAL) ASH(BSLH) ASH(SLASH) ASH(N5)       ASH(N6)   ASH(SQT)  ASH(SEMI)  ASH(COMMA) ASH(DOT) ____
-                ____     SWITCHWND  LEADR      ASH(GRAVE)  DELWRD   &blt          &kp CAPS  &caps_word  ssh(LBKT) ssh(RBKT) &dot_spc ____
-                ____     ____  ____  ____  ____                                                      &tog_lay NSY  ____  ____  ____  ____
-            >;
+                ____  ssh(N1)    ssh(N2)    ASH(N3)     ASH(N4)  &rst_all      ____      ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
+                ____  ASH(MINUS) ASH(EQUAL) ASH(BSLH) ASH(SLASH) ASH(N5)       ASH(N6)   ASH(SQT)  ASH(SEMI)  ASH(COMMA) ASH(DOT) ____
+                ____  SWITCHWND  LEADR      ASH(GRAVE)  DELWRD   &blt          ____      &dot_spc  PARS       ssh(LBKT) ssh(RBKT) ____
+                ____  ____  ____  ____  ____                                                      &tog_lay NSY  ____  ____  ____  ____
+            >; 
         };
 
         fun {
             label = " f# ";
             bindings = <
-                ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5        ____ &kp HOME   &kp UP    &kp END    &kp PG_UP  ____
+                ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5        ____ &kp HOME   &kp UP    &kp END    &kp PG_UP  &tog_lay FUN
                 ____ &kp F6  &kp F7  &kp F8  &kp F9  &kp F10       ____ &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN  ____
                 ____ &kp F11 &kp F12 &kp F13 &kp F14 &kp F15       ____ &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &kp C_PP ____
                 ____ ____  ____  ____  &tkp LSHFT BSPC                                     ____  ____  ____  ____  ____
