@@ -85,9 +85,9 @@
         mou { 
             label = " ~ ";
             bindings = <
-                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  SCR_U  MOU_U  SCR_D   xxxx  ____
+                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  SCR_U  MOU_U  SCR_D   xxxx   ____
                 ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  MOU_L  MOU_D  MOU_R   MCK_L  ____
-                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  xxxx   xxxx &kp K_APP MCK_R____
+                ____  xxxx  xxxx  xxxx  xxxx  xxxx       ____  xxxx   xxxx &kp K_APP MCK_R  ____
                 ____  ____  ____  ____  ____            &tkp RSHFT SPACE  ____  ____  ____  ____
             >;
         };
