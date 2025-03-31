@@ -75,9 +75,9 @@
         abc {
             label = "abc";
             bindings = <
-                &kp ESC  &kp Q  &kp W  &kp D  &kp F  &kp G            &rst_all     &kp L  &kp U  &kp O  &kp DEL    &tog MOU 
+                &kp ESC   &kp Q  &kp W  &kp D  &kp F  &rst_all        &rst_all     &kp L  &kp U  &kp O  &kp DEL    &tog MOU 
                 ks(LSHFT) &kp A  &kp S  &kp R  &kp T  &kp B           &key_repeat  &kp N  &kp E  &kp I  &kp P      ks(RSHFT) 
-                &kp CAPS  &kp Y  &kp X  &kp C  &kp V  &kp Z           &sk LSHFT    &kp H  &kp M  &kp K  &kp J      &caps_word 
+                &kp CAPS  &kp Y  &kp X  &kp C  &kp V  &kp Z               &kp G    &kp H  &kp M  &kp K  &kp J      &caps_word 
                 ks(LCTRL) ks(LGUI) ks(LALT) &kp TAB &mk NSY BSPC      &mk FUN SPACE  &kp ENTER  ks(RALT)  ks(RGUI) ks(RCTRL)
             >; 
         };
@@ -105,9 +105,9 @@
         fun {
             label = " f# ";
             bindings = <
-                ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5        ____ &kp HOME   &kp UP    &kp END    &kp PG_UP  &tog_lay FUN
+                ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5        ____ &kp HOME   &kp UP    &kp END    &kp PG_UP  ____
                 ____ &kp F6  &kp F7  &kp F8  &kp F9  &kp F10       ____ &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN  ____
-                ____ &kp F11 &kp F12 &kp F13 &kp F14 &kp F15       ____ &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &kp C_PP ____
+                ____ &kp F11 &kp F12 &kp F13 &kp F14 &kp F15       ____ &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &kp C_PP &tog_lay FUN
                 ____ ____  ____  ____  &tkp LSHFT BSPC                                     ____  ____  ____  ____  ____
             >;
         };
