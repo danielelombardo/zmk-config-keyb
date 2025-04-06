@@ -77,7 +77,7 @@
             bindings = <
                 &kp ESC   &kp Q  &kp W  &kp D  &kp F  &rst_all        &rst_all     &kp L  &kp U  &kp O  &kp DEL    &tog MOU 
                 ks(LSHFT) &kp A  &kp S  &kp R  &kp T  &kp G           &key_repeat  &kp H  &kp E  &kp I  &kp P      ks(RSHFT) 
-                &kp CAPS  &kp Y  &kp X  &kp C  &kp V  &kp Z              &kp B     &kp N  &kp M  &kp K  &kp J      &caps_word 
+                &kp CAPS  &kp Y  &kp X  &kp C  &kp V  &kp Z           &kp B        &kp N  &kp M  &kp K  &kp J      &caps_word 
                 ks(LCTRL) ks(LGUI) ks(LALT) &kp TAB &mk NSY BSPC      &mk FUN SPACE  &kp ENTER  ks(RALT)  ks(RGUI) ks(RCTRL)
             >; 
         };
@@ -95,9 +95,9 @@
         nsy {
             label = "123";
             bindings = <
-                ____  ssh(N1)    ssh(N2)    ASH(N3)     ASH(N4)  &rst_all      ____      ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
+                ____  ssh(N1)    ssh(N2)    ASH(N3)     ASH(N4)  ____          ____      ASH(N7)   ASH(N8)    ASH(N9)    ASH(N0)  ____ 
                 ____  ASH(MINUS) ASH(EQUAL) ASH(BSLH) ASH(SLASH) ASH(N5)       ASH(N6)   ASH(SQT)  ASH(SEMI)  ASH(COMMA) ASH(DOT) ____
-                ____  SWITCHWND  LEADR      ASH(GRAVE)  DELWRD   &blt          ____      &dot_spc  PARS       ssh(LBKT) ssh(RBKT) ____
+                ____  SWITCHWND  LEADR      ASH(GRAVE)  DELWRD   &blt          xxxx      &dot_spc  PARS       ssh(LBKT) ssh(RBKT) ____
                 ____  ____  ____  ____  ____                                                      &tog_lay NSY  ____  ____  ____  ____
             >; 
         };
@@ -107,7 +107,7 @@
             bindings = <
                 ____ &kp F1  &kp F2  &kp F3  &kp F4  &kp F5        ____ &kp HOME   &kp UP    &kp END    &kp PG_UP  ____
                 ____ &kp F6  &kp F7  &kp F8  &kp F9  &kp F10       ____ &kp LEFT   &kp DOWN  &kp RIGHT  &kp PG_DN  ____
-                ____ &kp F11 &kp F12 &kp F13 &kp F14 &kp F15       ____ &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &kp C_PP &tog_lay FUN
+                ____ &kp F11 &kp F12 &kp F13 &kp F14 &kp F15       xxxx &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &kp C_PP &tog_lay FUN
                 ____ ____  ____  ____  &tkp LSHFT BSPC                                     ____  ____  ____  ____  ____
             >;
         };
