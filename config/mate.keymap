@@ -76,8 +76,8 @@
             label = "abc";
             bindings = <
                 &kp ESC   &kp Q  &kp W  &kp D  &kp F  &rst_all        &rst_all     &kp L  &kp U  &kp O  &kp DEL    &tog MOU 
-                ks(LSHFT) &kp A  &kp S  &kp R  &kp T  &kp B           &key_repeat  &kp N  &kp E  &kp I  &kp P      ks(RSHFT) 
-                &kp CAPS  &kp Y  &kp X  &kp C  &kp V  &kp Z               &kp G    &kp H  &kp M  &kp K  &kp J      &caps_word 
+                ks(LSHFT) &kp A  &kp S  &kp R  &kp T  &kp G           &key_repeat  &kp H  &kp E  &kp I  &kp P      ks(RSHFT) 
+                &kp CAPS  &kp Y  &kp X  &kp C  &kp V  &kp Z                 &kp B  &kp N  &kp M  &kp K  &kp J      &caps_word 
                 ks(LCTRL) ks(LGUI) ks(LALT) &kp TAB &mk NSY BSPC      &mk FUN SPACE  &kp ENTER  ks(RALT)  ks(RGUI) ks(RCTRL)
             >; 
         };
