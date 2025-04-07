@@ -85,7 +85,7 @@ int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_batte
         // lv_obj_t *image_canvas = lv_canvas_create(widget->obj);
         lv_obj_align(battery_label, LV_ALIGN_TOP_LEFT, i * 35, 0);
         // lv_canvas_set_buffer(image_canvas, battery_image_buffer[i], 30, 3, LV_IMG_CF_TRUE_COLOR);
-        lv_obj_align(image_canvas, LV_ALIGN_BOTTOM_LEFT, i * 35, 0);
+        // lv_obj_align(image_canvas, LV_ALIGN_BOTTOM_LEFT, i * 35, 0);
         lv_obj_add_flag(battery_label, LV_OBJ_FLAG_HIDDEN);
         // lv_obj_add_flag(image_canvas, LV_OBJ_FLAG_HIDDEN);
     }
