@@ -80,7 +80,7 @@ struct modifier_symbol *modifier_symbols[] = {
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
 static void anim_x_cb(void *var, int32_t v) {
-    lv_obj_set_y(var, v);
+    lv_obj_set_x(var, v);
 }
 
 static void move_object_x(void *obj, int32_t from, int32_t to) {
@@ -95,7 +95,7 @@ static void move_object_x(void *obj, int32_t from, int32_t to) {
 }
 
 static void set_modifiers(lv_obj_t *widget, struct modifiers_state state) {
-    uint8_t listofmods = 0;
+    int32_t listofmods = 0;
     for (int i = 0; i < NUM_SYMBOLS; i++) {
         bool mod_is_active = (state.modifiers & modifier_symbols[i]->modifier) > 0;
 
