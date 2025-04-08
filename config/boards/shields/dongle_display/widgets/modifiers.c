@@ -26,8 +26,9 @@ struct modifier_symbol {
     uint8_t modifier;
     const lv_img_dsc_t *symbol_dsc;
     lv_obj_t *symbol;
-    lv_obj_t *selection_line; 
+    // lv_obj_t *selection_line; 
     bool is_active;
+    uint8_t position;
 };
 
 LV_IMG_DECLARE(control_icon);
@@ -78,33 +79,37 @@ struct modifier_symbol *modifier_symbols[] = {
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
-static void anim_y_cb(void *var, int32_t v) {
+static void anim_x_cb(void *var, int32_t v) {
     lv_obj_set_y(var, v);
 }
 
-static void move_object_y(void *obj, int32_t from, int32_t to) {
+static void move_object_x(void *obj, int32_t from, int32_t to) {
     lv_anim_t a;
     lv_anim_init(&a);
     lv_anim_set_var(&a, obj);
     lv_anim_set_time(&a, 200); // will be replaced with lv_anim_set_duration
-    lv_anim_set_exec_cb(&a, anim_y_cb);
-    lv_anim_set_path_cb(&a, lv_anim_path_overshoot);
+    lv_anim_set_exec_cb(&a, anim_x_cb);
+    lv_anim_set_path_cb(&a, lv_anim_path_linear);
     lv_anim_set_values(&a, from, to);
     lv_anim_start(&a);
 }
 
 static void set_modifiers(lv_obj_t *widget, struct modifiers_state state) {
+    uint8_t listofmods = 0;
     for (int i = 0; i < NUM_SYMBOLS; i++) {
         bool mod_is_active = (state.modifiers & modifier_symbols[i]->modifier) > 0;
 
         if (mod_is_active && !modifier_symbols[i]->is_active) {
-            move_object_y(modifier_symbols[i]->symbol, 1, 0);
-            move_object_y(modifier_symbols[i]->selection_line, SIZE_SYMBOLS + 4, SIZE_SYMBOLS + 2);
+            move_object_x(modifier_symbols[i]->symbol, -SIZE_SYMBOLS, listofmods);
+            // move_object_x(modifier_symbols[i]->selection_line, SIZE_SYMBOLS + 4, SIZE_SYMBOLS + 2);
             modifier_symbols[i]->is_active = true;
+            modifier_symbols[i]->position = listofmods;
+            listofmods += SIZE_SYMBOLS + 1;
         } else if (!mod_is_active && modifier_symbols[i]->is_active) {
-            move_object_y(modifier_symbols[i]->symbol, 0, 1);
-            move_object_y(modifier_symbols[i]->selection_line, SIZE_SYMBOLS + 2, SIZE_SYMBOLS + 4);
+            move_object_x(modifier_symbols[i]->symbol, modifier_symbols[i]->position, -SIZE_SYMBOLS);
+            // move_object_x(modifier_symbols[i]->selection_line, SIZE_SYMBOLS + 2, SIZE_SYMBOLS + 4);
             modifier_symbols[i]->is_active = false;
+            listofmods -= SIZE_SYMBOLS - 1;
         }
     }
 }
@@ -130,21 +135,21 @@ int zmk_widget_modifiers_init(struct zmk_widget_modifiers *widget, lv_obj_t *par
 
     lv_obj_set_size(widget->obj, NUM_SYMBOLS * (SIZE_SYMBOLS + 1) + 1, SIZE_SYMBOLS + 3);
     
-    static lv_style_t style_line;
-    lv_style_init(&style_line);
-    lv_style_set_line_width(&style_line, 2);
+    // static lv_style_t style_line;
+    // lv_style_init(&style_line);
+    // lv_style_set_line_width(&style_line, 2);
 
-    static const lv_point_t selection_line_points[] = { {0, 0}, {SIZE_SYMBOLS, 0} };
+    // static const lv_point_t selection_line_points[] = { {0, 0}, {SIZE_SYMBOLS, 0} };
 
     for (int i = 0; i < NUM_SYMBOLS; i++) {
         modifier_symbols[i]->symbol = lv_img_create(widget->obj);
-        lv_obj_align(modifier_symbols[i]->symbol, LV_ALIGN_TOP_LEFT, 1 + (SIZE_SYMBOLS + 1) * i, 1);
+        lv_obj_align(modifier_symbols[i]->symbol, LV_ALIGN_TOP_LEFT, -SIZE_SYMBOLS, 1);
         lv_img_set_src(modifier_symbols[i]->symbol, modifier_symbols[i]->symbol_dsc);
 
-        modifier_symbols[i]->selection_line = lv_line_create(widget->obj);
-        lv_line_set_points(modifier_symbols[i]->selection_line, selection_line_points, 2);
-        lv_obj_add_style(modifier_symbols[i]->selection_line, &style_line, 0);
-        lv_obj_align_to(modifier_symbols[i]->selection_line, modifier_symbols[i]->symbol, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 3);
+        // modifier_symbols[i]->selection_line = lv_line_create(widget->obj);
+        // lv_line_set_points(modifier_symbols[i]->selection_line, selection_line_points, 2);
+        // lv_obj_add_style(modifier_symbols[i]->selection_line, &style_line, 0);
+        // lv_obj_align_to(modifier_symbols[i]->selection_line, modifier_symbols[i]->symbol, LV_ALIGN_OUT_BOTTOM_LEFT, 0, 3);
     }
 
     sys_slist_append(&widgets, &widget->node);
