@@ -42,17 +42,17 @@ static void draw_battery(lv_obj_t *canvas, uint8_t level) {
 
 
 static void set_battery_symbol(lv_obj_t *widget, struct peripheral_battery_state state) {
-    lv_obj_t *label = lv_obj_get_child(widget, state.source * 2);
-    lv_obj_t *symbol = lv_obj_get_child(widget, state.source * 2 + 1);
+    lv_obj_t *label = lv_obj_get_child(widget, state.source);
+    // lv_obj_t *symbol = lv_obj_get_child(widget, state.surce * 2 + 1);
     
     // draw_battery(symbol, state.level);
     lv_label_set_text_fmt(label, "%3u", state.level/10);
 
     if (state.level > 0) {
-        lv_obj_clear_flag(symbol, LV_OBJ_FLAG_HIDDEN);
+        // lv_obj_clear_flag(symbol, LV_OBJ_FLAG_HIDDEN);
         lv_obj_clear_flag(label, LV_OBJ_FLAG_HIDDEN);
     } else {
-        lv_obj_add_flag(symbol, LV_OBJ_FLAG_HIDDEN);
+        // lv_obj_add_flag(symbol, LV_OBJ_FLAG_HIDDEN);
         lv_obj_add_flag(label, LV_OBJ_FLAG_HIDDEN);
     }
 }
@@ -78,7 +78,7 @@ ZMK_SUBSCRIPTION(widget_battery_status, zmk_peripheral_battery_state_changed);
 int zmk_widget_peripheral_battery_status_init(struct zmk_widget_peripheral_battery_status *widget, lv_obj_t *parent) {
     widget->obj = lv_obj_create(parent);
 
-    lv_obj_set_size(widget->obj, LV_SIZE_CONTENT + 1, LV_SIZE_CONTENT);
+    lv_obj_set_size(widget->obj, LV_SIZE_CONTENT + 7, LV_SIZE_CONTENT);
 
     for (int i = 0; i < ZMK_SPLIT_BLE_PERIPHERAL_COUNT; i++) {
         lv_obj_t *battery_label = lv_label_create(widget->obj);
