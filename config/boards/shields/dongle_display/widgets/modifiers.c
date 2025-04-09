@@ -28,7 +28,7 @@ struct modifier_symbol {
     lv_obj_t *symbol;
     // lv_obj_t *selection_line; 
     bool is_active;
-    uint8_t position;
+    int32_t position;
 };
 
 LV_IMG_DECLARE(control_icon);
@@ -77,8 +77,6 @@ struct modifier_symbol *modifier_symbols[] = {
 
 #define NUM_SYMBOLS (sizeof(modifier_symbols) / sizeof(struct modifier_symbol *))
 
-int32_t listofmods = 0;
-
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
 static void anim_x_cb(void *var, int32_t v) {
@@ -97,6 +95,8 @@ static void move_object_x(void *obj, int32_t from, int32_t to) {
 }
 
 static void set_modifiers(lv_obj_t *widget, struct modifiers_state state) {
+    int32_t listofmods = 0;
+
     for (int i = 0; i < NUM_SYMBOLS; i++) {
         bool mod_is_active = (state.modifiers & modifier_symbols[i]->modifier) > 0;
 
@@ -105,12 +105,13 @@ static void set_modifiers(lv_obj_t *widget, struct modifiers_state state) {
             // move_object_x(modifier_symbols[i]->selection_line, SIZE_SYMBOLS + 4, SIZE_SYMBOLS + 2);
             modifier_symbols[i]->is_active = true;
             modifier_symbols[i]->position = listofmods;
-            listofmods += SIZE_SYMBOLS;
         } else if (!mod_is_active && modifier_symbols[i]->is_active) {
             move_object_x(modifier_symbols[i]->symbol, modifier_symbols[i]->position, -SIZE_SYMBOLS);
             // move_object_x(modifier_symbols[i]->selection_line, SIZE_SYMBOLS + 2, SIZE_SYMBOLS + 4);
             modifier_symbols[i]->is_active = false;
-            listofmods -= SIZE_SYMBOLS;
+        }
+        if (mod_is_active) {
+            listofmods += SIZE_SYMBOLS + 1;
         }
     }
 }
@@ -134,8 +135,7 @@ ZMK_SUBSCRIPTION(widget_modifiers, zmk_keycode_state_changed);
 int zmk_widget_modifiers_init(struct zmk_widget_modifiers *widget, lv_obj_t *parent) {
     widget->obj = lv_obj_create(parent);
 
-    lv_obj_set_size(widget->obj, NUM_SYMBOLS * (SIZE_SYMBOLS + 1
-    ) + 1, SIZE_SYMBOLS + 3);
+    lv_obj_set_size(widget->obj, NUM_SYMBOLS * (SIZE_SYMBOLS + 1) + 1, SIZE_SYMBOLS + 3);
     
     // static lv_style_t style_line;
     // lv_style_init(&style_line);
