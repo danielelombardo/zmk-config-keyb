@@ -75,6 +75,8 @@ struct modifier_symbol *modifier_symbols[] = {
     &ms_opt
 };
 
+int32_t listofmods = 0;
+
 #define NUM_SYMBOLS (sizeof(modifier_symbols) / sizeof(struct modifier_symbol *))
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
@@ -95,7 +97,6 @@ static void move_object_x(void *obj, int32_t from, int32_t to) {
 }
 
 static void set_modifiers(lv_obj_t *widget, struct modifiers_state state) {
-    int32_t listofmods = 0;
 
     for (int i = 0; i < NUM_SYMBOLS; i++) {
         bool mod_is_active = (state.modifiers & modifier_symbols[i]->modifier) > 0;
@@ -112,6 +113,8 @@ static void set_modifiers(lv_obj_t *widget, struct modifiers_state state) {
         }
         if (mod_is_active) {
             listofmods += SIZE_SYMBOLS + 1;
+        } else {
+            listofmods -= SIZE_SYMBOLS - 1;
         }
     }
 }
