@@ -1,7 +1,7 @@
-if SHIELD_MATE_DONGLE
+if SHIELD_KEYB_DONGLE
 
 config ZMK_KEYBOARD_NAME
-	default "mate"
+	default "keyb"
 	
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
@@ -43,7 +43,7 @@ endchoice
 endif
 
 
-if SHIELD_MATE_LEFT || SHIELD_MATE_RIGHT || SHIELD_MATE_DONGLE 
+if SHIELD_KEYB_MAIN || SHIELD_KEYB_DONGLE 
 
 config ZMK_SPLIT
 	default y

@@ -1,11 +1,10 @@
 file_format: "1"
-id: mate
-name: _mate
+id: keyb
+name: _keyb
 type: shield
 requires: [pro_micro]
 features:
   - keys
 siblings:
-  - mate_left
-  - mate_right
-  - mate_dongle
+  - keyb_main
+  - keyb_dongle
