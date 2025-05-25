@@ -41,8 +41,4 @@ config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
 config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
     default y
 
-# Increase the transmit power of the keyboard's BLE radio to address latency and poor left-right communication
-config BT_CTLR_TX_PWR_PLUS_8
-    default y
-    
 endif
