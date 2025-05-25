@@ -15,6 +15,12 @@ config ZMK_STUDIO
 config ZMK_STUDIO_LOCKING
     default n
 
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+    default y
+
 endif
 
     
@@ -35,10 +41,4 @@ config ZMK_POINTING
 config ZMK_SLEEP
     default y
     
-config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
-    default y
-
-config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
-    default y
-
 endif
