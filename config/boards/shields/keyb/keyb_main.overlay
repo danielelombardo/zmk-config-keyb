@@ -4,9 +4,13 @@
 
 / {
 	chosen {
+		zmk,battery = &vbatt;
 		zmk,kscan = &kscan0;
 		zmk,physical-layout = &physical_layout0;
-		zmk,battery = &vbatt;
+    };
+
+    vbatt: vbatt {
+        compatible = "zmk,battery-nrf-vddh";
     };
 
 	default_transform: keymap_transform_0 {
@@ -48,9 +52,5 @@
             , <&gpio0 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
 	};
-
-    vbatt: vbatt {
-        compatible = "zmk,battery-nrf-vddh";
-    };
 
 };
