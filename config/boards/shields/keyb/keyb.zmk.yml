@@ -1,10 +1,9 @@
 file_format: "1"
 id: keyb
-name: _keyb
+name: keyb
 type: shield
-requires: [pro_micro]
 features:
   - keys
 siblings:
-  - keyb_main
   - keyb_dongle
+  - keyb_main

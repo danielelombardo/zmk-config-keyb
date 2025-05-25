@@ -15,10 +15,11 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: keyb_dongle dongle_display
+    shield: keyb_dongle
     artifact-name: keyb_dongle
     snippet: studio-rpc-usb-uart
   - board: nice_nano_v2
-    shield: keyb_main
+    shield: keyb
+    cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
   - board: nice_nano_v2
     shield: settings_reset

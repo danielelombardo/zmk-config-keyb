@@ -6,46 +6,43 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
 	
-config ZMK_STUDIO
-    default y
-endif
-
-
-if ZMK_DISPLAY
-
-config I2C
-    default y
-
-config SSD1306
-    default y
-
-choice ZMK_DISPLAY_WORK_QUEUE
-    default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
-endchoice
-
-endif
-
-if LVGL
-
-config LV_Z_VDB_SIZE
-    default 64
-
-config LV_DPI_DEF
-    default 148
-
-config LV_Z_BITS_PER_PIXEL		# not in ZMK
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
     default 1
 
-choice LV_COLOR_DEPTH
-    default LV_COLOR_DEPTH_1
-endchoice
+# ZMK Studio config
+config ZMK_STUDIO
+    default y
+config ZMK_STUDIO_LOCKING
+    default n
 
 endif
 
-
-if SHIELD_KEYB_MAIN || SHIELD_KEYB_DONGLE 
-
+    
+if SHIELD_KEYB_DONGLE || SHIELD_KEYB_MAIN
+    
 config ZMK_SPLIT
-	default y
-	
+    default y
+
+config ZMK_BLE
+    default y
+
+config ZMK_USB
+    default y
+
+config ZMK_POINTING
+    default y
+    
+config ZMK_SLEEP
+    default y
+    
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    default y
+
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+    default y
+
+# Increase the transmit power of the keyboard's BLE radio to address latency and poor left-right communication
+config BT_CTLR_TX_PWR_PLUS_8
+    default y
+    
 endif
