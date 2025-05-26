@@ -55,23 +55,23 @@
             label = "abc";
             bindings = <
             //  1             2         3       4       5       6       7           8       9           10          11          12          13          14          15          16
-                &kp C_VOL_UP  &kp GRAVE &kp N1  &kp N2  &kp N3  &kp N4  &kp N5      &kp N6  &kp N7      &kp N8      &kp N9      &kp N0      &kp DEL     &blt 
+                &kp C_VOL_UP  &kp GRAVE &kp N1  &kp N2  &kp N3  &kp N4  &kp N5      &kp N6  &kp N7      &kp N8      &kp N9      &kp N0      &kp PG_UP   &kp PG_DN   
                 &kp C_VOL_DN  &kp ESC   &kp Q   &kp W   &kp D   &kp F   &kp L       &kp U   &kp O       &kp MINUS   &kp EQUAL   &kp LBKT    &kp RBKT    &kp UP      &kp HOME    &kp END 
                 &key_repeat &cps        &kp A   &kp S   &kp R   &kp T   &kp G       &kp H   &kp E       &kp I       &kp P       &kp SQT     &kp SLASH   &kp LEFT    &kp DOWN    &kp RIGHT 
                 &tog 1      &dot_spc    &kp Y   &kp X   &kp C   &kp V   &kp Z       &kp B   &kp N       &kp M       &kp K       &kp J       &kp DOT     &kp COMMA   &kp SEMI    &kp BSLH 
-                            LEADR       LCT     LGU     LAL     &kp TAB &kp BSPC    LSH     &kp SPACE   &kp ENTER   RAL         RGU         RCT         &kp PG_UP   &kp PG_DN   &kp C_PP 
+                            LEADR       LCT     LGU     LAL     &kp TAB &kp BSPC    LSH     &kp SPACE   &kp ENTER   RAL         RGU         RCT         &kp DEL     &kp INS     &kp C_PP 
             >; 
         };
 
         fun {
             label = "fu#";
             bindings = <
-            //  1       2       3       4           5           6           7       8               9               10              11              12      13      14      15      16
-                ____    ____    &kp F1  &kp F2      &kp F3      &kp F4      &kp F5  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10 ____    &studio_unlock
-                ____    ____    &kp F11 &kp F12     &kp F13     &kp F14     &kp F15 ____            &msc SCRL_UP    &msc SCRL_DOWN  ____            ____    ____    ____    ____    ____
-                ____    ____    ____    &mkp RCLK   &mkp MCLK   &mkp LCLK   ____    &mmv MOVE_LEFT  &mmv MOVE_UP    &mmv MOVE_RIGHT &mmv MOVE_DOWN  ____    ____    ____    ____    ____
-                ____    ____    ____    &kp K_APP   ____        ____        ____    ____            ____            ____            ____            ____    ____    ____    ____    ____
-                        ____    ____    ____        ____        ____        ____    ____            ____            ____            ____            ____    ____    ____    ____    ____
+            //  1       2       3        4           5           6           7       8               9               10              11              12      13      14      15      16
+                ____    ____    &kp F1   &kp F2      &kp F3      &kp F4      &kp F5  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10 ____    
+                ____    ____    &kp F11  &kp F12     &kp F13     &kp F14     &kp F15 &msc SCRL_UP    &msc SCRL_DOWN  ____            ____            ____    ____    ____    ____    ____
+                ____ &studio_unlock ____ &mkp RCLK   &mkp MCLK   &mkp LCLK   ____    &mmv MOVE_LEFT  &mmv MOVE_UP    &mmv MOVE_RIGHT &mmv MOVE_DOWN  ____    ____    ____    ____    ____
+                ____    ____    ____     &kp K_APP   ____        ____        ____    ____            ____            ____            ____            ____    ____    ____    ____    ____
+                        ____    ____     ____        ____        ____        ____    ____            ____            ____            ____            ____    ____    ____    ____    &blt 
             >;
         };
 
