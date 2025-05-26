@@ -45,7 +45,7 @@
     behaviors {
         mk:  moml_kp      { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
         ksk: kp_sk        { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; }; 
-        blt: bluetoot     { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&bt BT_NXT>, <&bt BT_CLR>; mods = <(MOD_LALT|MOD_RALT)>; };
+        blt: bluetoot     { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&bt BT_NXT>, <&bt BT_CLR>; mods = <(MOD_RALT)>; };
         cps: caps_wrd     { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&caps_word>, <&kp CAPS>; mods = <(MOD_LALT|MOD_RALT)>; };
     };
   
@@ -67,7 +67,7 @@
             label = "fu#";
             bindings = <
             //  1       2       3       4           5           6           7       8               9               10              11              12      13      14      15      16
-                ____    ____    &kp F1  &kp F2      &kp F3      &kp F4      &kp F5  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10 ____    ____
+                ____    ____    &kp F1  &kp F2      &kp F3      &kp F4      &kp F5  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10 ____    &studio_unlock
                 ____    ____    &kp F11 &kp F12     &kp F13     &kp F14     &kp F15 ____            &msc SCRL_UP    &msc SCRL_DOWN  ____            ____    ____    ____    ____    ____
                 ____    ____    ____    &mkp RCLK   &mkp MCLK   &mkp LCLK   ____    &mmv MOVE_LEFT  &mmv MOVE_UP    &mmv MOVE_RIGHT &mmv MOVE_DOWN  ____    ____    ____    ____    ____
                 ____    ____    ____    &kp K_APP   ____        ____        ____    ____            ____            ____            ____            ____    ____    ____    ____    ____
