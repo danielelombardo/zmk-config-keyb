@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 &caps_word { continue-list = <MINUS UNDERSCORE BSPC DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
-&sk { release-after-ms = <3000>; quick-release; ignore-modifiers; };
+&sk { release-after-ms = <2000>; quick-release; lazy; ignore-modifiers; };
 &sl { release-after-ms = <3000>; };
 
 #define xxxx &none
@@ -66,12 +66,12 @@
         fun {
             label = "fu#";
             bindings = <
-            //  1       2       3        4           5           6           7       8               9               10              11              12      13      14      15      16
-                ____    ____    &kp F1   &kp F2      &kp F3      &kp F4      &kp F5  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10 ____    
-                ____    ____    &kp F11  &kp F12     &kp F13     &kp F14     &kp F15 &msc SCRL_UP    &msc SCRL_DOWN  ____            ____            ____    ____    ____    ____    ____
-                ____ &studio_unlock ____ &mkp RCLK   &mkp MCLK   &mkp LCLK   ____    &mmv MOVE_LEFT  &mmv MOVE_UP    &mmv MOVE_RIGHT &mmv MOVE_DOWN  ____    ____    ____    ____    ____
-                ____    ____    ____     &kp K_APP   ____        ____        ____    ____            ____            ____            ____            ____    ____    ____    ____    ____
-                        ____    ____     ____        ____        ____        ____    ____            ____            ____            ____            ____    ____    ____    ____    &blt 
+            //  1       2       3       4           5           6           7       8               9               10              11              12      13      14      15      16
+                ____    ____    &kp F1  &kp F2      &kp F3      &kp F4      &kp F5  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10 ____    ____
+                ____    ____    &kp F11 &kp F12     &kp F13     &kp F14     &kp F15 &mmv MOVE_UP    ____            ____            ____            ____    ____    ____    ____    ____
+                ____ &studio_unlock  ____ &mkp RCLK &mkp MCLK   &mkp LCLK   ____    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT ____            ____    ____    ____    ____    ____
+                ____    ____    ____    &kp K_APP   ____        ____        ____    ____            &msc SCRL_UP    ____            &msc SCRL_DOWN  ____    ____    ____    ____    ____
+                        ____    ____    ____        ____        ____        ____    ____            ____            ____            ____            ____    ____    ____    ____    &blt 
             >;
         };
 
