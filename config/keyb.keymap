@@ -6,30 +6,30 @@
 &sk { release-after-ms = <2000>; quick-release; lazy; ignore-modifiers; };
 &sl { release-after-ms = <3000>; };
 
+#define ks(l) &ksk l l 
+
 #define xxxx &none
 #define ____ &trans
 #define LEADR &sk LG(LS(LA(LCTRL)))
-#define LCT &sk LCTRL
-#define LGU &sk LGUI
-#define LAL &sk LALT
-#define LSH &sk LSHFT
-#define RCT &sk RCTRL
-#define RGU &sk RGUI
-#define RAL &sk RALT
-#define RSH &sk RSHFT
-
-#define ks(l) &ksk l l 
+#define LCT ks(LCTRL)
+#define LGU ks(LGUI)
+#define LAL ks(LALT)
+#define LSH ks(LSHFT)
+#define RCT ks(RCTRL)
+#define RGU ks(RGUI)
+#define RAL ks(RALT)
+#define RSH ks(RSHFT)
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 2000  // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 50    // 10
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 1000  // 10
 #include <dt-bindings/zmk/pointing.h>
 &mmv {
   acceleration-exponent = <1>;      // 1
-  time-to-max-speed-ms = <800>;    // 40
+  time-to-max-speed-ms = <500>;    // 40
 };
 &msc {
   acceleration-exponent = <1>;      // 0
-  time-to-max-speed-ms = <40>;    // 500
+  time-to-max-speed-ms = <100>;   // 500
 };
 
 / { 
@@ -44,7 +44,7 @@
 
     behaviors {
         mk:  moml_kp      { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&mo>, <&kp>; }; 
-        ksk: kp_sk        { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <200>; bindings = <&kp>, <&sk>; }; 
+        ksk: kp_sk        { compatible = "zmk,behavior-hold-tap";  #binding-cells = <2>; flavor = "tap-preferred"; tapping-term-ms = <500>; bindings = <&kp>, <&sk>; }; 
         blt: bluetoot     { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&bt BT_NXT>, <&bt BT_CLR>; mods = <(MOD_RALT)>; };
         cps: caps_wrd     { compatible = "zmk,behavior-mod-morph"; #binding-cells = <0>; bindings = <&caps_word>, <&kp CAPS>; mods = <(MOD_LALT|MOD_RALT)>; };
     };
@@ -69,7 +69,7 @@
             //  1       2       3       4           5           6           7       8               9               10              11              12      13      14      15      16
                 ____    ____    &kp F1  &kp F2      &kp F3      &kp F4      &kp F5  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10 ____    ____
                 ____    ____    &kp F11 &kp F12     &kp F13     &kp F14     &kp F15 &mmv MOVE_UP    ____            ____            ____            ____    ____    ____    ____    ____
-                ____ &studio_unlock  ____ &mkp RCLK &mkp MCLK   &mkp LCLK   ____    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT ____            ____    ____    ____    ____    ____
+                ____    ____    ____    &mkp RCLK   &mkp MCLK   &mkp LCLK   ____    &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT ____            ____    ____    ____    ____    ____
                 ____    ____    ____    &kp K_APP   ____        ____        ____    ____            &msc SCRL_UP    ____            &msc SCRL_DOWN  ____    ____    ____    ____    ____
                         ____    ____    ____        ____        ____        ____    ____            ____            ____            ____            ____    ____    ____    ____    &blt 
             >;
