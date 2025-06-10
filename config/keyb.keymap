@@ -69,7 +69,7 @@
             //  1             2         3             4         5       6       7           8           9           10          11          12          13          14          15      16 
                 ____          ____      ____          ____      ____    ____    ____        ____        ____        ____        &kp F11     &kp F12     &kp F13     ____ 
                 ____          ____      ____          ____      ____    ____    ____        ____        ____        ____        ____        &kp F7      &kp F8      &kp F9      ____    ____ 
-                ____          ____      ____  &msc SCRL_UP &mmv MOVE_UP &msc SCRL_DOWN  ____  ____    &mkp RCLK   &mkp MCLK   &mkp LCLK     ____        &kp F4      &kp F5      &kp F6  &kp F0 
+                ____          ____      ____  &msc SCRL_UP &mmv MOVE_UP &msc SCRL_DOWN  ____  ____    &mkp RCLK   &mkp MCLK   &mkp LCLK     ____        &kp F4      &kp F5      &kp F6  &kp F10 
                 ____          ____      ____  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT ____  ____  ____      ____      &kp K_APP     ____        ____        &kp F1      &kp F2  &kp F3 
                               ____      ____          ____      ____    ____    ____        ____        ____        ____        ____        ____        ____        ____        ____    ____  
             >; 
