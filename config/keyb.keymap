@@ -59,7 +59,7 @@
                 &kp N7        &kp N8      &kp N9      &kp ESC   &kp Q       &kp W   &kp D   &kp F       &kp B       &kp U       &kp O       &kp P       &kp PG_UP   &kp UP      &kp PG_DN   &kp INS
                 &kp N4        &kp N5      &kp N6      &kp TAB   &kp A       &kp S   &kp R   &kp T       &kp G       &kp H       &kp E       &kp I       &kp L       &kp LEFT    &kp DOWN    &kp RIGHT 
                 &kp N1        &kp N2      &kp N3      LEADR     &kp Y       &kp X   &kp C   &kp V       &kp Z       &dot_spc    &kp N       &kp M       &kp K       &kp J       &kp HOME    &kp END       
-                              &key_repeat &kp N0      &cps      LCT         LGU     LOP     LSH         &kp ENTER   &kp SPACE   &kp BSPC    ROP         RGU         RCT         &tog 1      &kp DEL 
+                              &key_repeat &kp N0      &cps      LCT         LGU     LOP     LSH         &kp ENTER   &kp DEL     &kp SPACE   &kp BSPC    ROP         RGU         RCT         &tog 1      
             >; 
         };
 
