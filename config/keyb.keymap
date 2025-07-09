@@ -19,6 +19,7 @@
 #define ROP ks(RALT)
 #define RSH ks(RSHFT)
 #define LEADR &sk LG(LS(LA(LCTRL)))
+#define DELWRD &kp LA(BSPC)
 
 #define ZMK_MOUSE_DEFAULT_MOVE_VAL 4000  // 600
 #define ZMK_MOUSE_DEFAULT_SCRL_VAL 4000  // 10
