@@ -28,8 +28,8 @@ lv_obj_t *zmk_display_status_screen() {
     lv_style_set_text_line_space(&global_style, 1);
     lv_obj_add_style(screen, &global_style, LV_PART_MAIN);
 
-    zmk_widget_dongle_battery_status_init(&battery_layer_widget, screen);
-    lv_obj_align(zmk_widget_dongle_battery_status_obj(&battery_layer_widget), LV_ALIGN_TOP_LEFT, 0, 0);
+    zmk_widget_battery_layer_status_init(&battery_layer_widget, screen);
+    lv_obj_align(zmk_widget_battery_layer_status_obj(&battery_layer_widget), LV_ALIGN_TOP_LEFT, 0, 0);
 
     zmk_widget_modifiers_init(&modifiers_widget, screen);
     lv_obj_align(zmk_widget_modifiers_obj(&modifiers_widget), LV_ALIGN_BOTTOM_LEFT, 0, 0);
