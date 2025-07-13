@@ -29,12 +29,12 @@ static void set_battery_symbol(lv_obj_t *label, struct battery_state bat_state) 
     if (bat_state.source >= ZMK_SPLIT_BLE_PERIPHERAL_COUNT) {
         return;
     }
-    char label_out[ZMK_SPLIT_BLE_PERIPHERAL_COUNT * 4 + 2] = "\0"
     // update battery level
-    sprintf(battery_objects[bat_state.source]->level, "%4u %% ", bat_state.level)
+    sprintf(battery_objects[bat_state.source]->level, "%4u %% ", bat_state.level);
     
+    char label_out[ZMK_SPLIT_BLE_PERIPHERAL_COUNT * 4 + 2] = "\0";
     for (int i = 0; i < ZMK_SPLIT_BLE_PERIPHERAL_COUNT; i++) {
-        strcat(label_out, battery_objects[i]->level)
+        strcat(label_out, battery_objects[i]->level);
     }
     
     lv_label_set_text_fmt(label, "%s > %s", label_out, top_layer.label);
@@ -63,7 +63,7 @@ struct layer_status_state {
     const char *label;
 };
 
-char top_layer[12] = "\0"
+char top_layer[12] = "\0";
     
 static void set_layer_symbol(lv_obj_t *label, struct layer_status_state state) {
 
@@ -74,9 +74,9 @@ static void set_layer_symbol(lv_obj_t *label, struct layer_status_state state) {
         sprintf(top_layer, "%s", state.label);
     }
     
-    char label_out[ZMK_SPLIT_BLE_PERIPHERAL_COUNT * 4 + 2] = "\0"
+    char label_out[ZMK_SPLIT_BLE_PERIPHERAL_COUNT * 4 + 2] = "\0";
     for (int i = 0; i < ZMK_SPLIT_BLE_PERIPHERAL_COUNT; i++) {
-        strcat(label_out, battery_objects[i]->level)
+        strcat(label_out, battery_objects[i]->level);
     }
     
     lv_label_set_text_fmt(label, "%s > %s", label_out, top_layer);

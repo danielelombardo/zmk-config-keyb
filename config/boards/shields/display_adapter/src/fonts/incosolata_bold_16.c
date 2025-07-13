@@ -4,11 +4,7 @@
  * Opts: --bpp 4 --size 16 --no-compress --font Inconsolata-Bold.ttf --range 32-127 --format lvgl -o incosolata_bold_16.c
  ******************************************************************************/
 
-#ifdef LV_LVGL_H_INCLUDE_SIMPLE
 #include "lvgl.h"
-#else
-#include "lvgl/lvgl.h"
-#endif
 
 #ifndef INCOSOLATA_BOLD_16
 #define INCOSOLATA_BOLD_16 1

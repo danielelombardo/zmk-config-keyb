@@ -53,7 +53,7 @@ struct modifier_symbol *modifier_symbols[] = {
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
 static void set_modifiers(lv_obj_t *widget, struct modifiers_state state) {
-    char label_out[44] = "\0"
+    char label_out[44] = "\0";
     for (int i = 0; i < 4; i++) {
         if (state.modifiers & modifier_symbols[i]->modifier) {
             strcat(label_out, modifier_symbols[i]->symbol_dsc);

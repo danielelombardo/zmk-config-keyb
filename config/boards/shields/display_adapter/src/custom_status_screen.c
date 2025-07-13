@@ -1,6 +1,5 @@
 
 #include "custom_status_screen.h"
-#include "widgets/battery_status.h"
 #include "widgets/modifiers.h"
 #include "widgets/battery_layer.h"
 
