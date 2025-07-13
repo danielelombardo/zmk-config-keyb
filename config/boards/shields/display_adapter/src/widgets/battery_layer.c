@@ -13,7 +13,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/event_manager.h>
 #include <zmk/keymap.h>
 
-#include "<battery_layer.h>"
+#include "battery_layer.h"
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
