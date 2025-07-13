@@ -104,8 +104,9 @@ int zmk_widget_battery_layer_status_init(struct zmk_widget_battery_layer_status 
     widget->obj = lv_label_create(widget->obj);
 
     sys_slist_append(&widgets, &widget->node);
-    
-    widget_battery_layer_status_init();
+
+    widget_battery_status_init();
+    widget_layer_status_init();
     return 0;
 }
 
