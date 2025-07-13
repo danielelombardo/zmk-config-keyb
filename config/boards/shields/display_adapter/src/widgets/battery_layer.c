@@ -24,6 +24,7 @@ struct battery_state {
 
 char battery_labels[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][8];
 
+char top_layer[12] = "\0";
 
 static void set_battery_symbol(lv_obj_t *label, struct battery_state bat_state) {
     if (bat_state.source >= ZMK_SPLIT_BLE_PERIPHERAL_COUNT) {
@@ -37,7 +38,7 @@ static void set_battery_symbol(lv_obj_t *label, struct battery_state bat_state) 
         strcat(label_out, battery_labels[i]);
     }
     
-    lv_label_set_text_fmt(label, "%s > %s", label_out, top_layer.label);
+    lv_label_set_text_fmt(label, "%s > %s", label_out, top_layer);
 }
 
 void battery_status_update_cb(struct battery_state state) {
@@ -63,7 +64,6 @@ struct layer_status_state {
     const char *label;
 };
 
-char top_layer[12] = "\0";
     
 static void set_layer_symbol(lv_obj_t *label, struct layer_status_state state) {
 
