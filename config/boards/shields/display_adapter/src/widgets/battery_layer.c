@@ -24,6 +24,11 @@ struct battery_state {
 
 char battery_labels[ZMK_SPLIT_BLE_PERIPHERAL_COUNT][8];
 
+struct layer_status_state {
+    uint8_t index;
+    const char *label;
+};
+
 char top_layer[12] = "\0";
 
 static void set_battery_symbol(lv_obj_t *label, struct battery_state bat_state) {
@@ -42,7 +47,7 @@ static void set_battery_symbol(lv_obj_t *label, struct battery_state bat_state) 
 }
 
 void battery_status_update_cb(struct battery_state state) {
-    struct zmk_widget_battery_status *widget;
+    struct zmk_widget_battery_layer_status *widget;
     SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) { set_battery_symbol(widget->obj, state); }
 }
 
@@ -59,12 +64,6 @@ ZMK_SUBSCRIPTION(widget_battery_status, zmk_peripheral_battery_state_changed);
     
     
 // layer
-struct layer_status_state {
-    uint8_t index;
-    const char *label;
-};
-
-    
 static void set_layer_symbol(lv_obj_t *label, struct layer_status_state state) {
 
     // update top layer
@@ -83,7 +82,7 @@ static void set_layer_symbol(lv_obj_t *label, struct layer_status_state state) {
 }
 
 static void layer_status_update_cb(struct layer_status_state state) {
-    struct zmk_widget_layer_status *widget;
+    struct zmk_widget_battery_layer_status *widget;
     SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) { set_layer_symbol(widget->obj, state); }
 }
 
