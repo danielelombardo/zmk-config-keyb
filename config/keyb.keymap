@@ -53,19 +53,19 @@
     keymap {
         compatible = "zmk,keymap";
         abc {
-            label = "abc";
+            display-name = "ABC";
             bindings = <
             //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
                                                         &kp COMMA   &kp DOT &kp SQT &kp SLASH   &kp BSLH    &kp MINUS   &kp EQUAL   &kp SEMI    &kp LBKT    &kp RBKT 
                                         &kp ESC &kp Q   &kp W       &kp D   &kp F   &cps        &kp B       &kp U       &kp O       &kp P       &kp BSPC    &tog 4 
-                &kp GRAVE   &kp TAB     &kp A   &kp S   &kp R       &kp T   &kp G   &dot_s      &kp H       &kp E       &kp I       &kp L       &kp DEL     &tog 2 
-                &key_repeat &kp Y       &kp X   &kp C   &kp V       &kp Z   LSH     RSH         &kp N       &kp M       &kp K       &kp J       &sl 3       &key_repeat 
-                                        &mo 2   &tog 4  LEADR       &mo 1   &mo 3   &kp SPACE   &kp ENTER   DELWRD      &kp C_VOL_DN  &kp C_VOL_UP 
+                &kp GRAVE   &kp TAB     &kp A   &kp S   &kp R       &kp T   &kp G   &dot_s      &kp H       &kp E       &kp I       &kp L       &kp DEL     &kp C_VOL_UP 
+                &mo 2       &kp Y       &kp X   &kp C   &kp V       &kp Z   LSH     RSH         &kp N       &kp M       &kp K       &kp J       &mo 3       &kp C_VOL_DN 
+                            &key_repeat  &tog 2  LEADR  &mo 1       &mo 3           &kp SPACE   &kp ENTER   DELWRD      &tog 4      &key_repeat
             >; 
         };
 
         123 {
-            label = "123";
+            display-name = "123";
             bindings = <
             //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
                                                         ____        ____    ____    ____        ____        ____        ____        ____        ____        ____ 
@@ -77,7 +77,7 @@
         };
 
         fun {
-            label = "fun";
+            display-name = "2 FUN";
             bindings = <
             //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
                                                         ____        &kp F11 &kp F12 &kp F13     ____        ____        ____        ____        ____        &blt 
@@ -89,7 +89,7 @@
         };
 
         lmd {
-            label = "lmd";
+            display-name = "3 lmd";
             bindings = <
             //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
                                                         ____        ____    ____    ____        ____        ____        ____        ____        ____        ____ 
@@ -101,7 +101,7 @@
         };
 
         mou {
-            label = "mou";
+            display-name = "4 mou";
             bindings = <
             //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
                                                         ____        ____    ____    ____        ____        ____        ____        ____        ____        ____ 
