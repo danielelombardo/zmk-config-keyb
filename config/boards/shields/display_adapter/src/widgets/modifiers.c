@@ -79,10 +79,10 @@ ZMK_DISPLAY_WIDGET_LISTENER(widget_modifiers, struct modifiers_state,
 ZMK_SUBSCRIPTION(widget_modifiers, zmk_keycode_state_changed);
 
 int zmk_widget_modifiers_init(struct zmk_widget_modifiers *widget, lv_obj_t *parent) {
-    widget->obj = lv_obj_create(parent);
-    lv_obj_t *modifiers_label = lv_label_create(widget->obj);
+    widget->obj = lv_label_create(widget->obj);
 
     sys_slist_append(&widgets, &widget->node);
+
     widget_modifiers_init();
     return 0;
 }

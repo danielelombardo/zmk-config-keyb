@@ -101,10 +101,10 @@ ZMK_SUBSCRIPTION(widget_layer_status, zmk_layer_state_changed);
 // widget init
 
 int zmk_widget_battery_layer_status_init(struct zmk_widget_battery_layer_status *widget, lv_obj_t *parent) {
-    widget->obj = lv_obj_create(parent);
-    lv_obj_t *batlayer_label = lv_label_create(widget->obj);
+    widget->obj = lv_label_create(widget->obj);
 
     sys_slist_append(&widgets, &widget->node);
+    
     widget_battery_layer_status_init();
     return 0;
 }
