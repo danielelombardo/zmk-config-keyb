@@ -41,6 +41,8 @@
             bindings = <&macro_tap &kp DOT &kp SPACE &sk LSHFT>; };
         tog_lay:  tog_lay  { compatible = "zmk,behavior-macro-one-param"; #binding-cells = <1>; 
             bindings = <&macro_pause_for_release>, <&macro_param_1to1>, <&macro_tap &tog MACRO_PLACEHOLDER>; };
+        navs:  navigation  { compatible = "zmk,behavior-macro"; #binding-cells = <0>; wait-ms = <5>; tap-ms = <15>;
+            bindings = <&macro_tap &to 1 &tog 4>; };
     };
 
     behaviors {
@@ -57,10 +59,10 @@
             bindings = <
             //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
                                                         &kp COMMA   &kp DOT &kp SQT &kp SLASH   &kp BSLH    &kp MINUS   &kp EQUAL   &kp SEMI    &kp LBKT    &kp RBKT 
-                                        &kp ESC &kp Q   &kp W       &kp D   &kp F   &cps        &kp B       &kp U       &kp O       &kp P       &kp BSPC    &tog 4 
+                                        &kp ESC &kp Q   &kp W       &kp D   &kp F   &cps        &kp B       &kp U       &kp O       &kp P       &kp BSPC    &tog 2 
                 &kp GRAVE   &kp TAB     &kp A   &kp S   &kp R       &kp T   &kp G   &dot_s      &kp H       &kp E       &kp I       &kp L       &kp DEL     &kp C_VOL_UP 
-                &mo 2       &kp Y       &kp X   &kp C   &kp V       &kp Z   LSH     RSH         &kp N       &kp M       &kp K       &kp J       &mo 3       &kp C_VOL_DN 
-                            &key_repeat  &tog 2  LEADR  &mo 1       &mo 3           &kp SPACE   &kp ENTER   DELWRD      &tog 4      &key_repeat
+                &sl 3       &kp Y       &kp X   &kp C   &kp V       &kp Z   LSH     RSH         &kp N       &kp M       &kp K       &kp J       &sl 4       &kp C_VOL_DN 
+                            &key_repeat  &tog 2  LEADR  &mo 1       &navs           &kp SPACE   &kp ENTER   DELWRD      &tog 3      &key_repeat
             >; 
         };
 
@@ -72,43 +74,43 @@
                                         ____    ____    &kp N7      &kp N8  &kp N9  ____        &kp HOME    &kp UP      &kp END     ____        ____        ____ 
                 ____        ____    &tog_lay 1  &kp N4  &kp N5      &kp N6  ____    ____        &kp LEFT    &kp DOWN    &kp RIGHT   ____        ____        ____ 
                 ____        &kp N0      &kp N1  &kp N2  &kp N3      ____    ____    ____        &kp PG_UP   &kp INS     &kp PG_DN   ____        ____        ____ 
-                                        ____    ____    ____        ____    ____    ____        ____        ____        ____        ____ 
+                            ____        ____    ____    ____        ____            ____        ____        ____        ____        ____ 
             >; 
         };
 
-        fun {
-            display-name = "2 FUN";
-            bindings = <
-            //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
-                                                        ____        &kp F11 &kp F12 &kp F13     ____        ____        ____        ____        ____        &blt 
-                                        ____    ____    &kp F7      &kp F8  &kp F9  ____        ____        ____        ____        ____        ____        ____ 
-                ____        ____        ____    &kp F4  &kp F5      &kp F6  ____    ____        ROP         RGU         RCT         RSH         ____        ____ 
-                ____        &kp F10     &kp F1  &kp F2  &kp F3      ____    ____    ____        ____        ____        ____        ____        ____        ____ 
-                                        ____    ____    ____        ____    ____    ____        ____        ____        ____        ____ 
-            >; 
-        };
-
-        lmd {
-            display-name = "3 lmd";
-            bindings = <
-            //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
-                                                        ____        ____    ____    ____        ____        ____        ____        ____        ____        ____ 
-                                        ____    ____    ____        ____    ____    ____        ____        ____        ____        ____        ____        ____ 
-                ____        ____        LSH     LCT     LGU         LOP     ____    ____        ____        ____        ____        ____        ____        ____ 
-                ____        ____        ____    ____    ____        ____    ____    ____        ____        ____        ____        ____        ____        ____ 
-                                        ____    ____    ____        ____    ____    ____        ____        ____        ____        ____    
-            >; 
-        };
-
-        mou {
-            display-name = "4 mou";
+        mou2 {
+            display-name = "2MW";
             bindings = <
             //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
                                                         ____        ____    ____    ____        ____        ____        ____        ____        ____        ____ 
                                         ____    ____    ____        ____    ____    ____      &msc SCRL_UP &mmv MOVE_UP &msc SCRL_DOWN  ____    ____        ____ 
                 ____        ____        ____ &mkp RCLK  &mkp MCLK   &mkp LCLK ____  ____      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT ____  ____    ____ 
                 ____        ____        ____    ____    ____        ____    ____    ____        ____        ____        &kp K_APP   ____        ____        ____ 
-                                        ____    ____    ____        ____    ____    ____        ____        ____        ____        ____ 
+                            ____        ____    ____    ____        ____            ____        ____        ____        ____        ____ 
+            >; 
+        };
+
+        fun3 {
+            display-name = "3FN";
+            bindings = <
+            //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
+                                                        ____        &kp F11 &kp F12 &kp F13     ____        ____        ____        ____        ____        &blt 
+                                        ____    ____    &kp F7      &kp F8  &kp F9  ____        ____        ____        ____        ____        ____        ____ 
+                ____        ____        ____    &kp F4  &kp F5      &kp F6  ____    ____        ROP         RGU         RCT         RSH         ____        ____ 
+                ____        &kp F10     &kp F1  &kp F2  &kp F3      ____    ____    ____        ____        ____        ____        ____        ____        ____ 
+                            ____        ____    ____    ____        ____            ____        ____        ____        ____        ____ 
+            >; 
+        };
+
+        lmd4 {
+            display-name = "4LM";
+            bindings = <
+            //  1           2           3       4       5           6       7       8           9           10          11          12          13          14
+                                                        ____        ____    ____    ____        ____        ____        ____        ____        ____        ____ 
+                                        ____    ____    ____        ____    ____    ____        ____        ____        ____        ____        ____        ____ 
+                ____        ____        LSH     LCT     LGU         LOP     ____    ____        ____        ____        ____        ____        ____        ____ 
+                ____        ____        ____    ____    ____        ____    ____    ____        ____        ____        ____        ____        ____        ____ 
+                            ____        ____    ____    &to 0       ____            ____        ____        ____        ____        ____    
             >; 
         };
 

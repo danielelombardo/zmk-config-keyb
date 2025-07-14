@@ -1,5 +1,6 @@
 #include <zephyr/kernel.h>
 #include <zephyr/bluetooth/services/bas.h>
+#include <lvgl.h>
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
@@ -13,7 +14,10 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/event_manager.h>
 #include <zmk/keymap.h>
 
-#include "battery_layer.h"
+struct zmk_widget_battery_layer_status {
+    sys_snode_t node;
+    lv_obj_t *obj;
+};
 
 static sys_slist_t widgets = SYS_SLIST_STATIC_INIT(&widgets);
 
