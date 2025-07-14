@@ -1,3 +1,4 @@
+#include <lvgl.h>
 
 #include "custom_status_screen.h"
 #include "widgets/modifiers.h"
