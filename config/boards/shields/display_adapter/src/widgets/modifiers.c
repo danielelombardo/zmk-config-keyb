@@ -1,6 +1,5 @@
 #include <zephyr/kernel.h>
 #include <zephyr/bluetooth/services/bas.h>
-#include <lvgl.h>
 
 #include <zephyr/logging/log.h>
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
@@ -11,10 +10,7 @@ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 #include <zmk/hid.h>
 #include <dt-bindings/zmk/modifiers.h>
 
-struct zmk_widget_modifiers {
-    sys_snode_t node;
-    lv_obj_t *obj;
-};
+#include "modifiers.h"
 
 struct modifiers_state {    
     uint8_t modifiers;
