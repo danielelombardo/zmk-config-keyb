@@ -11,11 +11,11 @@ int disp_set_orientation(void)
 		return -EIO;
 	}
 
-#ifdef CONFIG_DISPLAY_ROTATE_DISPLAY_180
-	int ret = display_set_orientation(display, DISPLAY_ORIENTATION_ROTATED_180);
-#else
 	int ret = display_set_orientation(display, DISPLAY_ORIENTATION_NORMAL);
-#endif
+	// int ret = display_set_orientation(display, DISPLAY_ORIENTATION_ROTATED_90);
+	// int ret = display_set_orientation(display, DISPLAY_ORIENTATION_ROTATED_180);
+	// int ret = display_set_orientation(display, DISPLAY_ORIENTATION_ROTATED_270);
+
 	if (ret < 0)
 	{
 		return ret;
