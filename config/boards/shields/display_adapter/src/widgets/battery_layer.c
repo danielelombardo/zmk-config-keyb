@@ -102,6 +102,7 @@ ZMK_SUBSCRIPTION(widget_layer_status, zmk_layer_state_changed);
 
 int zmk_widget_battery_layer_status_init(struct zmk_widget_battery_layer_status *widget, lv_obj_t *parent) {
     widget->obj = lv_label_create(widget->obj);
+    lv_style_set_text_font(widget->obj, &space_mono_14);
 
     sys_slist_append(&widgets, &widget->node);
 

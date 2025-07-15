@@ -22,12 +22,6 @@ lv_obj_t *zmk_display_status_screen() {
 
     screen = lv_obj_create(NULL);
 
-    lv_style_init(&global_style);
-    lv_style_set_text_font(&global_style, &space_mono_16);
-    lv_style_set_text_letter_space(&global_style, 1);
-    lv_style_set_text_line_space(&global_style, 1);
-    lv_obj_add_style(screen, &global_style, LV_PART_MAIN);
-
     zmk_widget_battery_layer_status_init(&battery_layer_widget, screen);
     lv_obj_align(zmk_widget_battery_layer_status_obj(&battery_layer_widget), LV_ALIGN_TOP_LEFT, 0, 0);
 
