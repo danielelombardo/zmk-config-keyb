@@ -4,11 +4,7 @@
  * Opts: --bpp 1 --size 14 --no-compress --font SpaceMono-Regular.ttf --range 32-127 --format lvgl -o space_mono_14.c
  ******************************************************************************/
 
-#ifdef LV_LVGL_H_INCLUDE_SIMPLE
 #include "lvgl.h"
-#else
-#include "lvgl/lvgl.h"
-#endif
 
 #ifndef SPACE_MONO_14
 #define SPACE_MONO_14 1
