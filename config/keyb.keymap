@@ -4,7 +4,7 @@
 
 &caps_word { continue-list = <MINUS UNDERSCORE BSPC DEL LEFT RIGHT DOT COMMA SEMI SLASH>; };
 &sk { release-after-ms = <2000>; lazy; };
-&sl { release-after-ms = <1000>; };
+// &sl { release-after-ms = <1000>; };
 
 
 #define xxxx &none

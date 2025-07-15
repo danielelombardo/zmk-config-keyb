@@ -6,8 +6,6 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
 
-endif
-
 if ZMK_DISPLAY
 
 config I2C
@@ -19,8 +17,6 @@ config SSD1306
 choice ZMK_DISPLAY_WORK_QUEUE
     default ZMK_DISPLAY_WORK_QUEUE_DEDICATED
 endchoice
-
-endif
 
 if LVGL
 
@@ -37,7 +33,12 @@ choice LV_COLOR_DEPTH
     default LV_COLOR_DEPTH_1
 endchoice
 
-endif
+endif #LVGL
+
+endif #ZMK_DISPLAY
+
+endif #SHIELD_KEYB_DONGLE
+
 
 if SHIELD_KEYB_DONGLE || SHIELD_KEYB_MAIN
     
