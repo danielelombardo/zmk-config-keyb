@@ -3,8 +3,6 @@
 #include "widgets/modifiers.h"
 #include "widgets/battery_layer.h"
 
-#include <fonts.h>
-
 #include <zephyr/logging/log.h>
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
 
