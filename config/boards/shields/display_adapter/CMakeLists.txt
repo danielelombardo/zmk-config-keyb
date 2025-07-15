@@ -9,7 +9,6 @@ if(CONFIG_ZMK_DISPLAY AND CONFIG_ZMK_DISPLAY_STATUS_SCREEN_CUSTOM AND ((NOT CONF
     zephyr_library_include_directories(${ZEPHYR_CURRENT_CMAKE_DIR}/include)
     zephyr_library_include_directories(include)
     zephyr_library_sources(src/custom_status_screen.c)
-    zephyr_library_sources(src/display_rotate_init.c)
     zephyr_library_sources(src/widgets/battery_layer.c)
     zephyr_library_sources(src/widgets/modifiers.c)
     zephyr_library_sources(${font_sources})
