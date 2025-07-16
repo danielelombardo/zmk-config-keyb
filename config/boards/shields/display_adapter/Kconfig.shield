@@ -1,2 +1,0 @@
-config SHIELD_DISPLAY_ADAPTER
-    def_bool $(shields_list_contains,display_adapter)

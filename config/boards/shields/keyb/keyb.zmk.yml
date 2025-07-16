@@ -5,5 +5,4 @@ type: shield
 features:
   - keys
 siblings:
-  - keyb_dongle
   - keyb_main
