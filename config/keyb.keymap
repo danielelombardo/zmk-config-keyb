@@ -62,7 +62,7 @@
                                                         &kp COMMA   &kp DOT &kp SQT &kp SLASH   &kp BSLH    &kp MINUS   &kp EQUAL   &kp SEMI    &kp LBKT    &kp RBKT 
                                         &kp ESC &kp Q   &kp W       &kp D   &kp F   &cps        &kp B       &kp U       &kp O       &kp P       &kp BSPC    &tog 2 
                 &kp GRAVE   &kp TAB     &kp A   &kp S   &kp R       &kp T   &kp G   &dot_s      &kp H       &kp E       &kp I       &kp L       &kp DEL     &kp C_VOL_UP 
-                &ml 3       &kp Y       &kp X   &kp C   &kp V       &kp Z   LSH     RSH         &kp N       &kp M       &kp K       &kp J       &ml 4       &kp C_VOL_DN 
+                ml(3)       &kp Y       &kp X   &kp C   &kp V       &kp Z   LSH     RSH         &kp N       &kp M       &kp K       &kp J       ml(4)       &kp C_VOL_DN 
                             &key_repeat  &tog 2  LEADR  &mo 1       &navs           &kp SPACE   &kp ENTER   DELWRD      &tog 3      &key_repeat
             >; 
         };
