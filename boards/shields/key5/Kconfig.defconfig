@@ -1,8 +1,8 @@
 
-if SHIELD_KEYB_DONGLE
+if SHIELD_KEY5_DONGLE
 
 config ZMK_KEYBOARD_NAME
-	default "keyb"
+	default "key5"
 	
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
@@ -10,7 +10,7 @@ config ZMK_SPLIT_ROLE_CENTRAL
 endif
 
 
-if SHIELD_KEYB_DONGLE || SHIELD_KEYB_MAIN
+if SHIELD_KEY5_DONGLE || SHIELD_KEY5_MAIN
     
 config ZMK_SPLIT
     default y
