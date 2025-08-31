@@ -15,5 +15,6 @@
 ---
 include:
     - board: nice_nano_v2
-      shield: key5_dongle
-  #   "keyb_main", "settings_reset"
+      shield: key66_dongle
+    - board: nice_nano_v2
+      shield: key66_main #settings_reset

@@ -1,0 +1,6 @@
+
+config SHIELD_KEY66_DONGLE
+	def_bool $(shields_list_contains,key66_dongle)
+
+config SHIELD_KEY66_MAIN
+	def_bool $(shields_list_contains,key66_main)

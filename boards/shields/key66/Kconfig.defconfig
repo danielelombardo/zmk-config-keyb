@@ -1,16 +1,19 @@
 
-if SHIELD_KEY5_DONGLE
+if SHIELD_KEY66_DONGLE
 
 config ZMK_KEYBOARD_NAME
-	default "key5"
+	default "key66"
 	
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
 
+config ZMK_USB
+    default y
+	
 endif
 
 
-if SHIELD_KEY5_DONGLE || SHIELD_KEY5_MAIN
+if SHIELD_KEY66_DONGLE || SHIELD_KEY66_MAIN
     
 config ZMK_SPLIT
     default y
