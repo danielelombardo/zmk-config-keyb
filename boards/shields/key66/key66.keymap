@@ -58,7 +58,7 @@
                         &to 1 &kp GRAVE &kp BSLH &kp COMMA &kp DOT &kp SQT &kp SLASH &kp MINUS &kp EQUAL &kp SEMI &kp LBKT  &kp RBKT    &to 2     &kp C_VOL_DN  &kp C_VOL_UP
                 &blt    ____    &kp Q   &kp W    &kp E     &kp R   &kp T    &kp Z    &kp U      &kp I    &kp O    &kp P     &kp BSPC    &kp HOME    &kp UP      &kp END  
                 &kp ESC &kp TAB &kp A   &kp S    &kp D     &kp F   &kp G    LEADR    &kp H      &kp J    &kp K    &kp L     &kp DEL     &kp LEFT    &kp DOWN    &kp RIGHT
-                LEADR   LSH     &kp Y   &kp X    &kp C     &kp V   dot_s    &kp B    &kp N      &kp M    &cps     RSH       DELWRD      &kp PG_UP   &kp INS     &kp PG_DN 
+                LEADR   LSH     &kp Y   &kp X    &kp C     &kp V   &dot_s   &kp B    &kp N      &kp M    &cps     RSH       DELWRD      &kp PG_UP   &kp INS     &kp PG_DN 
                                      &key_repeat NAV       ____    &kp SPACE  &kp ENTER   
             >; 
         };
