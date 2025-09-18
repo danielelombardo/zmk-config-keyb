@@ -63,25 +63,25 @@
             >; 
         };
 
-        fun1 {
+        fun {
             display-name = "FN";
             bindings = <
             //  1       2       3       4        5         6       7        8        9          10       11       12        13              14              15              16 
                 &blt    &kp F1  &kp F2  &kp F3   &kp F4    &kp F5  &kp F6   &kp F7   &kp F8     &kp F9   &kp F10  &kp F11   &kp F12         &kp F13         &kp F14         &kp F15 
                 ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN  ____ 
-                ____    ____    ____ &mkp RCLK &mkp MCLK &mkp LCLK ____     ROP        RGU      RCT      RSH      ____      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT ____ 
-                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      ____            &kp K_APP       ____            ____        
+                ____    ____    ____ &mkp RCLK &mkp MCLK &mkp LCLK ____     ROP      RGU        RCT      RSH      ____      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT ____ 
+                ____    ____    ____    LEADR     ____     ____    ____     ____     LEADR      ____     ____     ____      ____            &kp K_APP       ____            ____        
             >; 
         };
 
-        123 {
-            display-name = "123";
+        nav {
+            display-name = "NAV";
             bindings = <
             //  1       2       3       4        5         6       7        8        9          10       11       12        13          14          15          16
                 ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      ____        ____        ____        ____ 
                 ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      &kp HOME    &kp UP      &kp END     ____    
-                ____    ____    LSH     LCT       LGU      LOP     ____     ROP        RGU      RCT      RSH      ____      &kp LEFT    &kp DOWN    &kp RIGHT   ____ 
-                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      &kp PG_UP   &kp INS     &kp PG_DN   ____    
+                ____    ____    LSH     LCT       LGU      LOP     ____     ROP      RGU        RCT      RSH      ____      &kp LEFT    &kp DOWN    &kp RIGHT   ____ 
+                ____    ____    ____    LEADR     ____     ____    ____     ____     LEADR      ____     ____     ____      &kp PG_UP   &kp INS     &kp PG_DN   ____    
             >; 
         };
 
