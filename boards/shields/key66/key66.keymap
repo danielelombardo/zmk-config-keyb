@@ -20,6 +20,7 @@
 #define RSH ks(RSHFT)
 #define LEADR &sk LG(LS(LA(LCTRL)))
 #define DELWRD &kp LA(BSPC)
+#define REP &key_repeat
 
 #define NAV &moto 2 1
 #define RST &moto 2 0
@@ -54,36 +55,33 @@
         abc {
             display-name = "ABC";
             bindings = <
-            //  1       2       3       4        5         6       7        8        9          10       11       12        13          14          15          16
-                        &to 1 &kp GRAVE &kp BSLH &kp COMMA &kp DOT &kp SQT &kp SLASH &kp MINUS &kp EQUAL &kp SEMI &kp LBKT  &kp RBKT    &tog 2    &kp C_VOL_DN  &kp C_VOL_UP
-                &blt    ____    &kp Q   &kp W    &kp E     &kp R   &kp T    &kp Z    &kp U      &kp I    &kp O    &kp P     &kp BSPC    &kp HOME    &kp UP      &kp END  
-                &kp ESC &kp TAB &kp A   &kp S    &kp D     &kp F   &kp G    LEADR    &kp H      &kp J    &kp K    &kp L     &kp DEL     &kp LEFT    &kp DOWN    &kp RIGHT
-                LEADR   LSH     &kp Y   &kp X    &kp C     &kp V   &dot_s   &kp B    &kp N      &kp M    &cps     RSH       DELWRD      &kp PG_UP   &kp INS     &kp PG_DN 
-                                     &key_repeat NAV       ____    &kp SPACE  &kp ENTER &key_repeat 
+            //  1       2         3        4         5       6          7         8         9       10        11        12       13       14      15            16
+                &kp ESC &kp GRAVE &kp BSLH &kp COMMA &kp DOT &kp SLASH  &dot_s    &kp SEMI  &kp SQT &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp DEL &kp C_VOL_DN  &kp C_VOL_UP
+                &kp TAB &kp Q     &kp W    &kp E     &kp R   &kp T      &kp Z     &kp U     &kp I   &kp O     &kp P     &kp BSPC &kp N7   &kp N8  &kp N9        &kp N0   
+                NAV     LSH       &kp A    &kp S     &kp D   &kp F      &kp G     &kp H     &kp J   &kp K     &kp L     RSH      &kp N4   &kp N5  &kp N6        &cps 
+                REP     &kp Y     &kp X    &kp C     &kp V   &kp B      &kp SPACE &kp N     &kp M   REP       &kp ENTER NAV      &kp N1   &kp N2  &kp N3        NAV  
             >; 
         };
 
         fun1 {
             display-name = "FN";
             bindings = <
-            //  1       2       3       4        5         6       7        8        9          10       11       12        13          14      15      16
-                        &kp F1  &kp F2  &kp F3   &kp F4    &kp F5  &kp F6   &kp F7   &kp F8     &kp F9   &kp F10  &kp F11   &kp F12     &kp F13 &kp F14 &kp F15 
-                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      ____        &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN  
-                ____    ____    ____ &mkp RCLK &mkp MCLK &mkp LCLK ____     ____     ROP        RGU      RCT      RSH       ____        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT
-                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      ____        ____    ____    &kp K_APP 
-                                        ____      RST      ____    ____     ____     ____ 
+            //  1       2       3       4        5         6       7        8        9          10       11       12        13              14              15              16 
+                &blt    &kp F1  &kp F2  &kp F3   &kp F4    &kp F5  &kp F6   &kp F7   &kp F8     &kp F9   &kp F10  &kp F11   &kp F12         &kp F13         &kp F14         &kp F15 
+                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN  ____ 
+                ____    ____    ____ &mkp RCLK &mkp MCLK &mkp LCLK ____     ____     ROP        RGU      RCT      RSH       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT ____ 
+                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      ____            &kp K_APP       ____            ____        
             >; 
         };
 
         123 {
             display-name = "123";
             bindings = <
-            //  1       2       3       4        5         6       7        8        9          10       11       12        13          14      15      16
-                        ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      ____        ____    ____    ____ 
-                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      ____        &kp N7  &kp N8  &kp N9  
-                ____    ____    LSH     LCT       LGU      LOP     ____     ____     ROP        RGU      RCT      RSH       ____        &kp N4  &kp N5  &kp N6
-                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      &kp N0      &kp N1  &kp N2  &kp N3 
-                                        ____      RST      ____    ____     ____     ____ 
+            //  1       2       3       4        5         6       7        8        9          10       11       12        13          14          15          16
+                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      ____        ____        ____        ____ 
+                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      &kp HOME    &kp UP      &kp END     ____    
+                ____    ____    LSH     LCT       LGU      LOP     ____     ____     ROP        RGU      RCT      RSH       &kp LEFT    &kp DOWN    &kp RIGHT   ____ 
+                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      &kp PG_UP   &kp INS     &kp PG_DN   ____    
             >; 
         };
 
