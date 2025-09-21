@@ -56,10 +56,10 @@
             display-name = "ABC";
             bindings = <
             //  1       2         3        4         5       6          7         8         9       10        11        12       13       14      15            16
-                &kp ESC &kp GRAVE &kp BSLH &kp COMMA &kp DOT &kp SLASH  &dot_s    &kp SEMI  &kp SQT &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp DEL &kp C_VOL_DN  &kp C_VOL_UP
-                &kp TAB &kp Q     &kp W    &kp E     &kp R   &kp T      &kp Z     &kp U     &kp I   &kp O     &kp P     &kp BSPC &kp N7   &kp N8  &kp N9        &kp N0   
-                NAV     LSH       &kp A    &kp S     &kp D   &kp F      &kp G     &kp H     &kp J   &kp K     &kp L     RSH      &kp N4   &kp N5  &kp N6        &cps 
-                REP     &kp Y     &kp X    &kp C     &kp V   &kp B      &kp SPACE &kp N     &kp M   REP       &kp ENTER NAV      &kp N1   &kp N2  &kp N3        NAV  
+                &kp ESC &kp GRAVE &kp BSLH &kp COMMA &kp DOT &kp SLASH  &dot_s    &kp SEMI  &kp SQT &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp DEL &kp C_VOL_DN  &kp C_VOL_UP 
+                &kp TAB &kp Q     &kp W    &kp E     &kp R   &kp T      &kp Z     &kp U     &kp I   &kp O     &kp P     &kp BSPC &kp N7   &kp N8  &kp N9        &kp N0 
+                REP     LSH       &kp A    &kp S     &kp D   &kp F      &kp G     &kp H     &kp J   &kp K     &kp L     RSH      &kp N4   &kp N5  &kp N6        &cps 
+                NAV     &kp Y     &kp X    &kp C     &kp V   &kp B      &kp SPACE &kp N     &kp M   LEADR     &kp ENTER NAV      &kp N1   &kp N2  &kp N3        &tog 2 
             >; 
         };
 
@@ -70,7 +70,7 @@
                 &blt    &kp F1  &kp F2  &kp F3   &kp F4    &kp F5  &kp F6   &kp F7   &kp F8     &kp F9   &kp F10  &kp F11   &kp F12         &kp F13         &kp F14         &kp F15 
                 ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      &msc SCRL_UP    &mmv MOVE_UP    &msc SCRL_DOWN  ____ 
                 ____    ____    ____ &mkp RCLK &mkp MCLK &mkp LCLK ____     ROP      RGU        RCT      RSH      ____      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT ____ 
-                ____    ____    ____    LEADR     ____     ____    ____     ____     LEADR      ____     ____     ____      ____            &kp K_APP       ____            ____        
+                ____    ____    ____    LEADR     ____     ____    ____     ____     LEADR      ____     ____     ____      ____            &kp K_APP       ____            ____ 
             >; 
         };
 
@@ -79,11 +79,10 @@
             bindings = <
             //  1       2       3       4        5         6       7        8        9          10       11       12        13          14          15          16
                 ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      ____        ____        ____        ____ 
-                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      &kp HOME    &kp UP      &kp END     ____    
+                ____    ____    ____    ____      ____     ____    ____     ____     ____       ____     ____     ____      &kp HOME    &kp UP      &kp END     ____ 
                 ____    ____    LSH     LCT       LGU      LOP     ____     ROP      RGU        RCT      RSH      ____      &kp LEFT    &kp DOWN    &kp RIGHT   ____ 
-                ____    ____    ____    LEADR     ____     ____    ____     ____     LEADR      ____     ____     ____      &kp PG_UP   &kp INS     &kp PG_DN   ____    
+                ____    ____    ____    LEADR     ____     ____    ____     ____     LEADR      ____     ____     ____      &kp PG_UP   &kp INS     &kp PG_DN   ____ 
             >; 
-        };
-
-    };
+        }; 
+    }; 
 };
